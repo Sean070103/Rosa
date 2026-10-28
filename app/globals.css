@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&family=Silkscreen:wght@400;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-pixel: 'Pixelify Sans', cursive, sans-serif;
+  --font-arcade: 'Press Start 2P', monospace;
+  --font-silk: 'Silkscreen', monospace;
+  --font-mono: 'Space Mono', monospace;
+  --font-sans: 'Space Mono', monospace;
+  --font-serif: 'Pixelify Sans', cursive, sans-serif;
+}
+
+:root {
+  --background: #FFFDF0;
+  --foreground: #000000;
+  --font-pixel: 'Pixelify Sans', cursive, sans-serif;
+  --font-arcade: 'Press Start 2P', monospace;
+  --font-silk: 'Silkscreen', monospace;
+  --font-mono: 'Space Mono', monospace;
+}
+
+* { 
+  box-sizing: border-box; 
+}
+
+html { 
+  scroll-behavior: smooth; 
+}
+
+body { 
+  margin: 0; 
+  background-color: #FFFDF0; 
+  color: #000000;
+  font-family: 'Space Mono', monospace;
+  overflow-x: hidden;
+}
+
+/* Neo-brutalist pixel grid background */
+.bg-neo-grid {
+  background-color: #FFFDF0;
+  background-image: 
+    radial-gradient(#000000 1.2px, transparent 1.2px),
+    radial-gradient(#000000 1.2px, #FFFDF0 1.2px);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+}
+
+/* Hard Neo-brutalist Shadows */
+.neo-shadow-sm {
+  box-shadow: 2px 2px 0px 0px #000000;
+}
+
+.neo-shadow {
+  box-shadow: 4px 4px 0px 0px #000000;
+}
+
+.neo-shadow-lg {
+  box-shadow: 6px 6px 0px 0px #000000;
+}
+
+.neo-shadow-xl {
+  box-shadow: 8px 8px 0px 0px #000000;
+}
+
+/* Interactive Neo Button Push */
+.neo-btn {
+  border: 3px solid #000000;
+  box-shadow: 4px 4px 0px 0px #000000;
+  transition: all 0.1s ease-in-out;
+}
+
+.neo-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px #000000;
+}
+
+.neo-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px #000000;
+}
+
+/* Custom Neo Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Pixel Font Utility Classes */
+.font-pixel {
+  font-family: 'Pixelify Sans', cursive, sans-serif;
+}
+
+.font-arcade {
+  font-family: 'Press Start 2P', monospace;
+}
+
+.font-silk {
+  font-family: 'Silkscreen', monospace;
+}
+
+.font-mono {
+  font-family: 'Space Mono', monospace;
+}
+
+/* Hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+::selection { 
+  background: #FFE600; 
+  color: #000000; 
+}
+
+
