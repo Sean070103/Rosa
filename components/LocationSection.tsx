@@ -1,79 +1,75 @@
 'use client'
 
-import { MapPin, Clock, Phone, Navigation, ArrowUpRight, Car, Dog } from 'lucide-react'
+import { MapPin, Phone, Navigation, ArrowUpRight, Car, Dog } from 'lucide-react'
 
 export function LocationSection() {
   return (
-    <section id="visit" className="border-b-4 border-black bg-[#FFFDF0] px-4 py-20 sm:px-8">
+    <section id="visit" className="border-b-4 border-[#341F14] bg-[#FAF4E8] px-4 py-20 sm:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
           
           {/* Left Information */}
           <div className="lg:col-span-6 space-y-6">
             <div className="space-y-2">
-              <div className="inline-block border-2 border-black bg-[#00F0FF] px-3 py-1 font-arcade text-[10px] text-black shadow-[3px_3px_0_0_#000]">
-                ★ SECTION 08 // DESTINATION & ACCESS ★
+              <div className="inline-flex items-center gap-2 border-2 border-[#341F14] bg-[#FBE48A] px-3.5 py-1 text-xs font-bold text-[#341F14] shadow-70s-sm uppercase tracking-wider">
+                ✿ Section 08 // Destination &amp; Access ✿
               </div>
-              <h2 className="font-pixel text-4xl font-black text-black sm:text-6xl">
-                SEE YOU BY THE WATER.
+              <h2 className="font-editorial text-4xl sm:text-6xl font-black italic text-[#341F14] tracking-tight">
+                See You by the Water.
               </h2>
-              <p className="font-mono text-xs leading-relaxed text-black/85">
+              <p className="font-sans text-sm leading-relaxed text-[#341F14]/85">
                 Located right inside Queen Aurora Garden Resort along the serene banks of Laguna de Bay in Cabuyao, Laguna.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono text-xs">
-              <div className="border-3 border-black bg-white p-4 shadow-[4px_4px_0_0_#000] space-y-1">
-                <span className="font-arcade text-[9px] text-[#FF5722] block">
-                  [LOCATION]
-                </span>
-                <p className="font-pixel text-xl font-bold text-black">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="border-3 border-[#341F14] bg-[#FFFDF7] p-4 shadow-70s space-y-1.5">
+                <span className="font-script text-sm font-bold text-[#C8521A] block">Location</span>
+                <p className="font-editorial text-xl italic font-black text-[#341F14]">
                   Queen Aurora Resort
                 </p>
-                <p className="text-black/80">
+                <p className="font-sans text-xs text-[#341F14]/80 leading-relaxed">
                   Cabuyao, Laguna 4025, PH
                   <br />
-                  <span className="font-arcade text-[8px] text-black/60">(Free gate entry for cafe patrons)</span>
+                  <span className="text-[#341F14]/60">(Free gate entry for cafe patrons)</span>
                 </p>
               </div>
 
-              <div className="border-3 border-black bg-white p-4 shadow-[4px_4px_0_0_#000] space-y-1">
-                <span className="font-arcade text-[9px] text-[#FF5722] block">
-                  [OPERATING HOURS]
-                </span>
-                <p className="font-pixel text-xl font-bold text-black">
+              <div className="border-3 border-[#341F14] bg-[#FFFDF7] p-4 shadow-70s space-y-1.5">
+                <span className="font-script text-sm font-bold text-[#C8521A] block">Hours</span>
+                <p className="font-editorial text-xl italic font-black text-[#341F14]">
                   10:00 AM — 1:00 AM
                 </p>
-                <p className="text-black/80">
-                  Open 7 Days a Week Daily
+                <p className="font-sans text-xs text-[#341F14]/80 leading-relaxed">
+                  Open 7 Days a Week
                   <br />
-                  <span className="font-arcade text-[8px] text-black/60">Sunset peak: 4:45 PM — 6:15 PM</span>
+                  <span className="text-[#341F14]/60">Sunset peak: 4:45 PM — 6:15 PM</span>
                 </p>
               </div>
             </div>
 
-            {/* Parking & Pet Pills */}
-            <div className="space-y-2 font-mono text-xs text-black">
-              <div className="flex items-center gap-2 border-2 border-black bg-[#A3E635] p-2.5 shadow-[2px_2px_0_0_#000]">
-                <Car className="size-4 shrink-0" />
-                <span><strong>FREE SECURE PARKING:</strong> Inside resort gates.</span>
+            {/* Parking & Pet Badges */}
+            <div className="space-y-2">
+              <div className="flex items-center gap-2.5 border-2 border-[#341F14] bg-[#FBE48A] p-3 shadow-70s-sm font-sans text-sm text-[#341F14]">
+                <Car className="size-4 shrink-0 text-[#C8521A]" />
+                <span><strong>Free Secure Parking:</strong> Inside resort gates — Section B.</span>
               </div>
-              <div className="flex items-center gap-2 border-2 border-black bg-[#FFE600] p-2.5 shadow-[2px_2px_0_0_#000]">
-                <Dog className="size-4 shrink-0" />
-                <span><strong>100% PET-FRIENDLY:</strong> Outdoor poolside veranda.</span>
+              <div className="flex items-center gap-2.5 border-2 border-[#341F14] bg-[#FFFDF7] p-3 shadow-70s-sm font-sans text-sm text-[#341F14]">
+                <Dog className="size-4 shrink-0 text-[#C8521A]" />
+                <span><strong>100% Pet-Friendly:</strong> Outdoor poolside veranda welcome.</span>
               </div>
             </div>
 
             {/* Navigation Actions */}
-            <div className="flex flex-wrap items-center gap-3 pt-1 font-silk text-xs">
+            <div className="flex flex-wrap items-center gap-3 pt-1">
               <a
                 href="https://maps.app.goo.gl/c1mfgMUK8GrFe26d9?g_st=ipc"
                 target="_blank"
                 rel="noreferrer"
-                className="neo-btn flex items-center gap-2 bg-[#FFE600] px-5 py-3 text-black font-bold"
+                className="retro-btn flex items-center gap-2 bg-[#341F14] text-[#FBE48A] px-5 py-3 font-sans font-bold text-xs uppercase tracking-wider hover:bg-[#C8521A]"
               >
                 <Navigation className="size-3.5" />
-                <span>[▶] GOOGLE MAPS</span>
+                <span>Google Maps</span>
                 <ArrowUpRight className="size-3.5" />
               </a>
 
@@ -81,51 +77,55 @@ export function LocationSection() {
                 href="https://www.waze.com/ul?q=Queen%20Aurora%20Garden%20Resort%20Cabuyao"
                 target="_blank"
                 rel="noreferrer"
-                className="neo-btn flex items-center gap-2 bg-[#00F0FF] px-5 py-3 text-black font-bold"
+                className="retro-btn flex items-center gap-2 bg-[#FBE48A] text-[#341F14] px-5 py-3 font-sans font-bold text-xs uppercase tracking-wider hover:bg-[#FAF4E8]"
               >
-                <span>[▶] WAZE MAPS</span>
+                <span>Waze Maps</span>
                 <ArrowUpRight className="size-3.5" />
               </a>
 
               <a
                 href="tel:09279532665"
-                className="neo-btn flex items-center gap-2 bg-white px-4 py-3 text-black font-mono text-xs font-bold"
+                className="retro-btn flex items-center gap-2 bg-[#FFFDF7] text-[#341F14] px-4 py-3 font-sans font-bold text-xs hover:bg-[#FBE48A]"
               >
-                <Phone className="size-3.5 text-[#FF5722]" />
+                <Phone className="size-3.5 text-[#C8521A]" />
                 <span>0927 953 2665</span>
               </a>
             </div>
           </div>
 
-          {/* Right Visual Card with 10002.jpg (Real Cup + Map Screen) */}
+          {/* Right Visual — 70s Polaroid Frame */}
           <div className="lg:col-span-6">
-            <div className="border-4 border-black bg-[#FFE600] p-4 shadow-[8px_8px_0_0_#000]">
-              <div className="flex items-center justify-between border-b-3 border-black pb-2 mb-3 font-arcade text-[10px] text-black">
-                <span>RORA_PIN_LOCATION.JPG</span>
-                <span className="bg-black text-[#FFE600] px-2 py-0.5">CABUYAO</span>
+            <div className="border-4 border-[#341F14] bg-[#FBE48A] p-4 shadow-70s-xl">
+              <div className="flex items-center justify-between border-b-2 border-[#341F14] pb-2.5 mb-3">
+                <span className="font-editorial italic text-sm font-black text-[#341F14]">
+                  ✿ Rosa_Pin_Location.jpg
+                </span>
+                <span className="bg-[#341F14] text-[#FBE48A] px-2.5 py-0.5 font-sans font-bold text-[10px] uppercase">
+                  Cabuyao · Laguna
+                </span>
               </div>
 
-              <div className="relative aspect-square w-full overflow-hidden border-3 border-black bg-black">
+              <div className="relative aspect-square w-full overflow-hidden border-3 border-[#341F14] rounded-t-[60px] bg-[#341F14]">
                 <img
                   src="/cafe_pic/10002.jpg"
-                  alt="Rora Dose coffee cup with location map overlay"
+                  alt="Rosa Dose coffee cup with location map overlay"
                   className="h-full w-full object-cover"
                 />
               </div>
 
               {/* Commute Chips */}
-              <div className="grid grid-cols-3 gap-2 pt-3 font-mono text-center text-xs">
-                <div className="border-2 border-black bg-white p-2">
-                  <span className="font-arcade text-[8px] text-black/60 block">SLEX CABUYAO</span>
-                  <span className="font-bold text-black font-pixel text-base">12 MINS</span>
+              <div className="grid grid-cols-3 gap-2 pt-3 text-center">
+                <div className="border-2 border-[#341F14] bg-[#FFFDF7] p-2.5 shadow-70s-sm">
+                  <span className="font-sans text-[10px] font-bold text-[#341F14]/60 block uppercase tracking-wider">SLEX Cabuyao</span>
+                  <span className="font-editorial italic text-base font-black text-[#341F14]">12 Mins</span>
                 </div>
-                <div className="border-2 border-black bg-white p-2">
-                  <span className="font-arcade text-[8px] text-black/60 block">SANTA ROSA</span>
-                  <span className="font-bold text-black font-pixel text-base">20 MINS</span>
+                <div className="border-2 border-[#341F14] bg-[#FFFDF7] p-2.5 shadow-70s-sm">
+                  <span className="font-sans text-[10px] font-bold text-[#341F14]/60 block uppercase tracking-wider">Santa Rosa</span>
+                  <span className="font-editorial italic text-base font-black text-[#341F14]">20 Mins</span>
                 </div>
-                <div className="border-2 border-black bg-white p-2">
-                  <span className="font-arcade text-[8px] text-black/60 block">ALABANG</span>
-                  <span className="font-bold text-black font-pixel text-base">40 MINS</span>
+                <div className="border-2 border-[#341F14] bg-[#FFFDF7] p-2.5 shadow-70s-sm">
+                  <span className="font-sans text-[10px] font-bold text-[#341F14]/60 block uppercase tracking-wider">Alabang</span>
+                  <span className="font-editorial italic text-base font-black text-[#341F14]">40 Mins</span>
                 </div>
               </div>
             </div>

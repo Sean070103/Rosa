@@ -6,7 +6,6 @@ import { MenuItem, CartItem } from '@/lib/types'
 import { MENU_ITEMS } from '@/lib/menu-data'
 import { Header } from '@/components/Header'
 import { Hero } from '@/components/Hero'
-import { MarqueeTicker } from '@/components/MarqueeTicker'
 import { MenuSection } from '@/components/MenuSection'
 import { DrinkCustomizerModal } from '@/components/DrinkCustomizerModal'
 import { TastingTrayDrawer } from '@/components/TastingTrayDrawer'
@@ -112,7 +111,7 @@ export default function Page() {
   }
 
   return (
-    <main id="top" className="min-h-screen bg-[#FFFDF0] text-black bg-neo-grid selection:bg-[#FFE600] selection:text-black">
+    <main id="top" className="min-h-screen bg-[#FAF4E8] text-[#341F14] bg-vintage-paper selection:bg-[#FBE48A] selection:text-[#341F14]">
       {/* Global Header */}
       <Header
         trayCount={trayCount}
@@ -126,9 +125,6 @@ export default function Page() {
         onQuickAdd={handleQuickAdd}
         onOpenReserve={scrollToReservation}
       />
-
-      {/* Retro Marquee Ticker */}
-      <MarqueeTicker />
 
       {/* Interactive Slow Bar Menu */}
       <MenuSection
@@ -178,7 +174,7 @@ export default function Page() {
         onClearTray={handleClearTray}
       />
 
-      {/* Floating Tasting Tray Pill in Neo Brutalism */}
+      {/* Floating Tasting Tray Pill */}
       {trayCount > 0 && (
         <aside 
           aria-label="Order summary"
@@ -186,23 +182,23 @@ export default function Page() {
         >
           <button
             onClick={() => setIsTrayOpen(true)}
-            className="neo-btn flex items-center gap-3 bg-[#FFE600] pl-4 pr-5 py-3 text-black font-arcade text-xs"
+            className="flex items-center gap-3 rounded-full bg-[#1A3B2F] text-[#FAF4E8] px-5 py-2.5 shadow-xl hover:bg-[#D25427] hover:scale-105 transition-all"
           >
-            <div className="relative flex size-8 items-center justify-center border-2 border-black bg-white">
-              <ShoppingBag className="size-4" />
-              <span className="absolute -top-2 -right-2 flex size-5 items-center justify-center border-2 border-black bg-[#FF3366] text-[8px] font-bold text-white">
+            <div className="relative flex size-7 items-center justify-center rounded-full bg-white/20">
+              <ShoppingBag className="size-3.5 text-white" />
+              <span className="absolute -top-1.5 -right-1.5 flex size-4 items-center justify-center rounded-full bg-[#D25427] text-[9px] font-black text-white">
                 {trayCount}
               </span>
             </div>
-            <div className="text-left">
-              <p className="text-[8px] tracking-wider text-black/70">
-                TASTING TRAY
+            <div className="text-left font-sans">
+              <p className="text-[9px] uppercase tracking-wider text-white/75 font-bold">
+                Tasting Tray
               </p>
-              <p className="font-bold text-black text-xs">
+              <p className="font-bold text-xs text-[#FAF4E8]">
                 ₱{traySubtotal}
               </p>
             </div>
-            <ArrowRight className="size-4 text-black" />
+            <ArrowRight className="size-4 text-white/90" />
           </button>
         </aside>
       )}

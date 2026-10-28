@@ -113,15 +113,15 @@ export function AmbientSoundPlayer() {
     <button
       onClick={toggleSound}
       title={isPlaying ? 'MUTE AMBIANCE' : 'PLAY BAY AMBIANCE'}
-      className="neo-btn flex items-center gap-1.5 bg-white px-2 py-1 font-arcade text-[8px] text-black hover:bg-[#FFE600]"
+      className="retro-btn flex items-center gap-1.5 bg-[#FAF4E8] border-[#FAF4E8] px-2 py-1 font-sans text-[10px] font-bold text-[#341F14] hover:bg-[#FBE48A]"
       aria-label="Toggle ambient waterfront audio"
     >
       {isPlaying ? (
         <>
           <span className="flex items-end gap-0.5 h-2.5">
-            <span className="w-1 h-2.5 bg-black animate-pulse" />
-            <span className="w-1 h-1.5 bg-black animate-pulse [animation-delay:150ms]" />
-            <span className="w-1 h-3 bg-black animate-pulse [animation-delay:300ms]" />
+            <span className="w-1 h-2.5 bg-[#C8521A] animate-pulse" />
+            <span className="w-1 h-1.5 bg-[#C8521A] animate-pulse [animation-delay:150ms]" />
+            <span className="w-1 h-3 bg-[#C8521A] animate-pulse [animation-delay:300ms]" />
           </span>
           <span>AUDIO: ON</span>
           <Volume2 className="size-3" />

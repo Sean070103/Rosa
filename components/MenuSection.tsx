@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import { Search, Filter, Plus, ArrowUpRight, Snowflake, Flame, Check, Sparkles } from 'lucide-react'
+import { Search, Filter, Plus, ArrowUpRight, Snowflake, Flame, Check } from 'lucide-react'
 import { MenuItem } from '@/lib/types'
 import { MENU_ITEMS } from '@/lib/menu-data'
 
@@ -17,11 +17,11 @@ export function MenuSection({ onSelectItem, onQuickAdd }: MenuSectionProps) {
   const [addedItemNotice, setAddedItemNotice] = useState<string | null>(null)
 
   const categories = [
-    { id: 'all', label: '[ALL ITEMS]', color: 'bg-[#FFE600]' },
-    { id: 'signature', label: '[SIGNATURE SIPS]', color: 'bg-[#00F0FF]' },
-    { id: 'pourover', label: '[POUR-OVERS]', color: 'bg-[#A3E635]' },
-    { id: 'matcha-tea', label: '[MATCHA & TEA]', color: 'bg-[#D8B4FE]' },
-    { id: 'pastries-kitchen', label: '[BAKES & PIZZA]', color: 'bg-[#FF8A00]' },
+    { id: 'all', label: '01 / All Offerings', color: 'bg-[#FBE48A]' },
+    { id: 'signature', label: '02 / Signature Sips', color: 'bg-[#C8521A] text-[#FAF4E8]' },
+    { id: 'pourover', label: '03 / Pour-Overs', color: 'bg-[#FBE48A]' },
+    { id: 'matcha-tea', label: '04 / Matcha & Tea', color: 'bg-[#FBE48A]' },
+    { id: 'pastries-kitchen', label: '05 / Bakes & Pizza', color: 'bg-[#C8521A] text-[#FAF4E8]' },
   ]
 
   const filteredItems = useMemo(() => {
@@ -54,23 +54,23 @@ export function MenuSection({ onSelectItem, onQuickAdd }: MenuSectionProps) {
     <section id="menu" className="relative mx-auto max-w-7xl px-4 py-20 sm:px-8">
       {/* Toast Notice when Quick Added */}
       {addedItemNotice && (
-        <div className="fixed bottom-6 right-6 z-50 flex items-center gap-2 border-3 border-black bg-[#FFE600] px-5 py-3 font-arcade text-xs text-black shadow-[6px_6px_0_0_#000] animate-in slide-in-from-bottom-2">
-          <Check className="size-4 stroke-[3]" />
-          <span>[ADDED: {addedItemNotice.toUpperCase()}]</span>
+        <div className="fixed bottom-6 right-6 z-50 flex items-center gap-2 border-3 border-[#341F14] bg-[#FBE48A] px-5 py-3 font-sans font-bold text-xs text-[#341F14] shadow-70s animate-in slide-in-from-bottom-2">
+          <Check className="size-4 stroke-[3] text-[#C8521A]" />
+          <span>[ADDED TO TRAY: {addedItemNotice.toUpperCase()}]</span>
         </div>
       )}
 
-      {/* Section Header */}
+      {/* 70s Editorial Section Header */}
       <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end mb-10">
         <div className="space-y-2">
-          <div className="inline-block border-2 border-black bg-[#FF3366] px-3 py-1 font-arcade text-[10px] text-white shadow-[3px_3px_0_0_#000]">
-            ★ SECTION 01 // THE SLOW BAR MENU ★
+          <div className="inline-flex items-center gap-1.5 border-2 border-[#341F14] bg-[#C8521A] px-3.5 py-1 text-xs font-bold text-[#FAF4E8] shadow-70s-sm uppercase">
+            <span>✿ Section 01 // The Slow Bar &amp; Bakery ✿</span>
           </div>
-          <h2 className="font-pixel text-4xl font-black text-black sm:text-6xl">
-            MADE FOR MINDFUL SIPS.
+          <h2 className="font-editorial text-4xl sm:text-6xl font-black italic text-[#341F14] tracking-tight">
+            Crafted for Mindful Sips.
           </h2>
-          <p className="font-mono text-xs text-black/80 max-w-xl">
-            Freshly pulled espresso shots, stone-ground Kyoto matcha, artisanal sourdough bakes, and single-origin Philippine beans.
+          <p className="font-sans text-sm text-[#341F14]/80 max-w-xl leading-relaxed">
+            Freshly pulled single-origin Benguet espresso, stone-ground Kyoto matcha, artisanal sourdough bakes, and house-infused wild honey syrups.
           </p>
         </div>
 
@@ -80,56 +80,59 @@ export function MenuSection({ onSelectItem, onQuickAdd }: MenuSectionProps) {
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="SEARCH DRINK OR INGREDIENT..."
-            className="w-full border-3 border-black bg-white px-4 py-3 font-mono text-xs text-black placeholder:text-black/50 shadow-[4px_4px_0_0_#000] focus:outline-none focus:bg-[#FFFDF0]"
+            placeholder="Search drinks, origin, or pastry..."
+            className="w-full border-3 border-[#341F14] bg-[#FFFDF7] px-4 py-3 font-sans text-xs text-[#341F14] placeholder:text-[#341F14]/50 shadow-70s focus:outline-none focus:bg-[#FAF4E8]"
           />
         </div>
       </div>
 
       {/* Category Filter Pills */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b-4 border-black pb-6 mb-10">
-        <div className="flex flex-wrap gap-2 font-silk text-xs">
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setActiveCategory(cat.id)}
-              className={`neo-btn px-4 py-2.5 font-bold ${
-                activeCategory === cat.id
-                  ? `${cat.color} text-black`
-                  : 'bg-white text-black hover:bg-neutral-100'
-              }`}
-            >
-              {cat.label}
-            </button>
-          ))}
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b-4 border-[#341F14] pb-6 mb-10">
+        <div className="flex flex-wrap gap-2.5">
+          {categories.map((cat) => {
+            const isActive = activeCategory === cat.id
+            return (
+              <button
+                key={cat.id}
+                onClick={() => setActiveCategory(cat.id)}
+                className={`retro-btn px-4 py-2 font-editorial text-xs italic font-bold uppercase tracking-wider ${
+                  isActive
+                    ? 'bg-[#C8521A] text-[#FAF4E8]'
+                    : 'bg-[#FFFDF7] text-[#341F14] hover:bg-[#FBE48A]'
+                }`}
+              >
+                {cat.label}
+              </button>
+            )
+          })}
         </div>
 
         <button
           onClick={() => setFilterPopular(!filterPopular)}
-          className={`neo-btn flex items-center gap-2 px-4 py-2 font-arcade text-[10px] ${
+          className={`retro-btn flex items-center gap-2 px-4 py-2 font-sans text-xs font-bold ${
             filterPopular
-              ? 'bg-[#FF3366] text-white'
-              : 'bg-white text-black'
+              ? 'bg-[#C8521A] text-[#FAF4E8]'
+              : 'bg-[#FBE48A] text-[#341F14]'
           }`}
         >
-          <Filter className="size-3" />
-          <span>[BEST SELLERS ONLY]</span>
+          <Filter className="size-3.5" />
+          <span>[Best Sellers Only]</span>
         </button>
       </div>
 
       {/* Grid of Menu Items */}
       {filteredItems.length === 0 ? (
-        <div className="border-4 border-black bg-white p-12 text-center shadow-[6px_6px_0_0_#000]">
-          <p className="font-pixel text-2xl text-black">NO SIPS FOUND IN THIS CATEGORY.</p>
+        <div className="border-4 border-[#341F14] bg-[#FFFDF7] p-12 text-center shadow-70s-lg">
+          <p className="font-editorial text-2xl italic text-[#341F14]">No offerings found in this category.</p>
           <button
             onClick={() => {
               setSearchQuery('')
               setActiveCategory('all')
               setFilterPopular(false)
             }}
-            className="mt-4 neo-btn bg-[#FFE600] px-4 py-2 font-arcade text-xs text-black"
+            className="mt-4 retro-btn bg-[#FBE48A] px-5 py-2.5 font-sans font-bold text-xs text-[#341F14]"
           >
-            RESET FILTERS
+            Reset Filters
           </button>
         </div>
       ) : (
@@ -137,35 +140,35 @@ export function MenuSection({ onSelectItem, onQuickAdd }: MenuSectionProps) {
           {filteredItems.map((item) => (
             <article
               key={item.id}
-              className="flex flex-col justify-between border-4 border-black bg-white p-4 shadow-[6px_6px_0_0_#000] transition-all hover:-translate-y-1 hover:shadow-[10px_10px_0_0_#000]"
+              className="flex flex-col justify-between border-4 border-[#341F14] bg-[#FFFDF7] p-5 shadow-70s transition-all hover:-translate-y-1 hover:shadow-70s-xl"
             >
               <div>
-                {/* Image Frame with Authentic Photo */}
-                <div className="relative aspect-square w-full overflow-hidden border-3 border-black bg-black">
+                {/* 70s Textured Image Frame with Arch Accent */}
+                <div className="relative aspect-square w-full overflow-hidden border-3 border-[#341F14] rounded-t-3xl bg-[#341F14]">
                   <img
                     src={item.image}
                     alt={item.name}
                     className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
                   />
 
-                  {/* Tag badge */}
+                  {/* 70s Tag badge */}
                   {item.tag && (
-                    <span className="absolute top-2.5 left-2.5 border-2 border-black bg-[#FFE600] px-2.5 py-1 font-arcade text-[9px] font-bold text-black shadow-[2px_2px_0_0_#000]">
-                      {item.tag}
+                    <span className="absolute top-3 left-3 border-2 border-[#341F14] bg-[#FBE48A] px-2.5 py-1 font-editorial italic text-xs font-bold text-[#341F14] shadow-70s-sm">
+                      ✿ {item.tag}
                     </span>
                   )}
 
                   {/* Temperature badge */}
                   {item.category !== 'pastries-kitchen' && (
-                    <span className="absolute top-2.5 right-2.5 border-2 border-black bg-white px-2 py-0.5 font-arcade text-[9px] text-black shadow-[2px_2px_0_0_#000] flex items-center gap-1">
+                    <span className="absolute top-3 right-3 border-2 border-[#341F14] bg-[#FFFDF7] px-2.5 py-0.5 font-sans text-[10px] font-bold text-[#341F14] shadow-70s-sm flex items-center gap-1">
                       {item.temperature === 'iced' ? (
                         <>
-                          <Snowflake className="size-3 text-sky-600" />
+                          <Snowflake className="size-3 text-[#C8521A]" />
                           <span>ICED</span>
                         </>
                       ) : item.temperature === 'hot' ? (
                         <>
-                          <Flame className="size-3 text-amber-600" />
+                          <Flame className="size-3 text-[#C8521A]" />
                           <span>HOT</span>
                         </>
                       ) : (
@@ -179,21 +182,21 @@ export function MenuSection({ onSelectItem, onQuickAdd }: MenuSectionProps) {
                 <div className="pt-4 space-y-2">
                   <div className="flex items-start justify-between gap-2">
                     <div>
-                      <h3 className="font-pixel text-2xl font-bold leading-tight text-black">
+                      <h3 className="font-editorial text-2xl font-black italic leading-tight text-[#341F14]">
                         {item.name}
                       </h3>
                       {item.origin && (
-                        <p className="font-silk text-[10px] text-[#FF5722] mt-0.5">
+                        <p className="font-script text-sm font-bold text-[#C8521A] mt-0.5">
                           {item.origin}
                         </p>
                       )}
                     </div>
-                    <span className="border-2 border-black bg-[#FFE600] px-2.5 py-1 font-arcade text-sm font-bold text-black shadow-[2px_2px_0_0_#000]">
+                    <span className="border-2 border-[#341F14] bg-[#FBE48A] px-3 py-1 font-editorial italic text-base font-black text-[#341F14] shadow-70s-sm">
                       ₱{item.price}
                     </span>
                   </div>
 
-                  <p className="font-mono text-xs leading-relaxed text-black/80 line-clamp-2">
+                  <p className="font-sans text-xs leading-relaxed text-[#341F14]/80 line-clamp-2">
                     {item.description}
                   </p>
 
@@ -202,9 +205,9 @@ export function MenuSection({ onSelectItem, onQuickAdd }: MenuSectionProps) {
                     {item.tastingNotes.map((note) => (
                       <span
                         key={note}
-                        className="border border-black bg-[#FFFDF0] px-2 py-0.5 font-arcade text-[8px] text-black"
+                        className="border border-[#341F14] bg-[#FAF4E8] px-2 py-0.5 font-sans text-[10px] font-semibold text-[#341F14]"
                       >
-                        +{note.toUpperCase()}
+                        +{note}
                       </span>
                     ))}
                   </div>
@@ -212,19 +215,19 @@ export function MenuSection({ onSelectItem, onQuickAdd }: MenuSectionProps) {
               </div>
 
               {/* Action Buttons */}
-              <div className="mt-5 pt-4 border-t-3 border-black flex items-center gap-2 font-silk">
+              <div className="mt-5 pt-4 border-t-2 border-dashed border-[#341F14]/40 flex items-center gap-2">
                 <button
                   type="button"
                   onClick={() => onSelectItem(item)}
-                  className="neo-btn flex-1 flex items-center justify-center gap-1.5 bg-[#00F0FF] py-2.5 text-xs font-bold text-black"
+                  className="retro-btn flex-1 flex items-center justify-center gap-1.5 bg-[#FAF4E8] hover:bg-[#FBE48A] py-2.5 text-xs font-bold text-[#341F14]"
                 >
                   <span>CUSTOMIZE</span>
-                  <ArrowUpRight className="size-3.5" />
+                  <ArrowUpRight className="size-3.5 text-[#C8521A]" />
                 </button>
                 <button
                   type="button"
                   onClick={() => handleQuickAddWithNotice(item)}
-                  className="neo-btn flex items-center justify-center bg-[#FFE600] px-4 py-2.5 text-black"
+                  className="retro-btn flex items-center justify-center bg-[#C8521A] text-[#FAF4E8] px-4 py-2.5 hover:bg-[#341F14]"
                   title="Quick add to tray"
                 >
                   <Plus className="size-4 stroke-[3]" />
@@ -235,13 +238,13 @@ export function MenuSection({ onSelectItem, onQuickAdd }: MenuSectionProps) {
         </div>
       )}
 
-      {/* Neo Guarantee Banner */}
-      <div className="mt-14 border-4 border-black bg-[#A3E635] p-6 shadow-[6px_6px_0_0_#000] text-center">
-        <p className="font-arcade text-xs text-black">
-          ★ ZERO ARTIFICIAL PRESERVATIVES · 100% CALAUAN WILD HONEY · LAGUNA SEA SALT ★
+      {/* 70s Guarantee Banner in Butter Yellow */}
+      <div className="mt-14 border-4 border-[#341F14] bg-[#FBE48A] p-6 shadow-70s text-center">
+        <p className="font-editorial text-sm italic font-bold text-[#341F14]">
+          ✿ ZERO ARTIFICIAL PRESERVATIVES · 100% CALAUAN WILD HONEY · LAGUNA SEA SALT ✿
         </p>
-        <p className="font-mono text-xs text-black/80 mt-1 max-w-xl mx-auto">
-          All our syrups are prepared in-house weekly. Single origins roasted fresh bi-weekly.
+        <p className="font-sans text-xs text-[#341F14]/80 mt-1 max-w-xl mx-auto">
+          All our syrups are prepared in-house weekly. Single origins roasted fresh bi-weekly in small artisanal batches.
         </p>
       </div>
     </section>

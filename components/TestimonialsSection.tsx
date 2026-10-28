@@ -1,23 +1,23 @@
 'use client'
 
-import { Star, MessageSquare } from 'lucide-react'
+import { Star } from 'lucide-react'
 import { TESTIMONIALS } from '@/lib/menu-data'
 
 export function TestimonialsSection() {
   return (
-    <section className="border-b-4 border-black bg-[#FFFDF0] px-4 py-20 sm:px-8">
+    <section className="border-b-4 border-[#341F14] bg-[#FAF4E8] px-4 py-20 sm:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="space-y-2">
-            <div className="inline-block border-2 border-black bg-[#FF3366] px-3 py-1 font-arcade text-[10px] text-white shadow-[3px_3px_0_0_#000]">
-              ★ SECTION 06 // PATRON KWENTUHAN ★
+            <div className="inline-flex items-center gap-2 border-2 border-[#341F14] bg-[#C8521A] px-3.5 py-1 text-xs font-bold text-[#FAF4E8] shadow-70s-sm uppercase tracking-wider">
+              ✿ Section 06 // Patron Kwentuhan ✿
             </div>
-            <h2 className="font-pixel text-4xl font-black text-black sm:text-6xl">
-              VOICES FROM THE VERANDA.
+            <h2 className="font-editorial text-4xl sm:text-6xl font-black italic text-[#341F14] tracking-tight">
+              Voices from the Veranda.
             </h2>
           </div>
-          <p className="font-mono text-xs text-black/80 max-w-md">
-            Stories from sunrise cyclers, remote coders, and late-night barkadas who call Rora Dose their second home.
+          <p className="font-sans text-sm text-[#341F14]/80 max-w-md leading-relaxed">
+            Stories from sunrise cyclers, remote coders, and late-night barkadas who call Rosa Dose their second home by the bay.
           </p>
         </div>
 
@@ -25,29 +25,29 @@ export function TestimonialsSection() {
           {TESTIMONIALS.map((item, idx) => (
             <div
               key={idx}
-              className="flex flex-col justify-between border-4 border-black bg-white p-6 shadow-[6px_6px_0_0_#000] hover:shadow-[10px_10px_0_0_#000] hover:-translate-y-1 transition-all"
+              className="flex flex-col justify-between border-4 border-[#341F14] bg-[#FFFDF7] p-6 shadow-70s transition-all hover:shadow-70s-xl hover:-translate-y-1"
             >
               <div className="space-y-4">
-                {/* Rating stars & Quote */}
-                <div className="flex items-center justify-between border-b-2 border-black pb-3">
-                  <div className="flex gap-1 text-[#FFE600]">
+                {/* Rating stars */}
+                <div className="flex items-center justify-between border-b-2 border-dashed border-[#341F14]/30 pb-3">
+                  <div className="flex gap-1">
                     {[...Array(item.rating)].map((_, i) => (
-                      <span key={i} className="text-base font-bold text-black bg-[#FFE600] px-1 border border-black text-[10px]">
+                      <span key={i} className="font-bold text-[#C8521A] bg-[#FBE48A] px-1 border border-[#341F14] text-[10px]">
                         ★
                       </span>
                     ))}
                   </div>
-                  <span className="font-arcade text-[8px] text-[#FF5722]">VERIFIED PATRON</span>
+                  <span className="font-script text-xs font-bold text-[#C8521A]">Verified Patron</span>
                 </div>
 
-                <p className="font-mono text-xs leading-relaxed text-black/90">
-                  “{item.review}”
+                <p className="font-editorial italic text-sm leading-relaxed text-[#341F14]/90 font-medium">
+                  &ldquo;{item.review}&rdquo;
                 </p>
               </div>
 
-              {/* Author Info with Authentic Pic */}
-              <div className="mt-6 pt-4 border-t-3 border-black flex items-center gap-3">
-                <div className="size-12 shrink-0 border-2 border-black overflow-hidden bg-black shadow-[2px_2px_0_0_#000]">
+              {/* Author Info */}
+              <div className="mt-6 pt-4 border-t-2 border-dashed border-[#341F14]/30 flex items-center gap-3">
+                <div className="size-12 shrink-0 border-2 border-[#341F14] rounded-full overflow-hidden bg-[#341F14] shadow-70s-sm">
                   <img
                     src={item.image}
                     alt={item.name}
@@ -55,14 +55,14 @@ export function TestimonialsSection() {
                   />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <h4 className="font-pixel text-lg font-bold text-black truncate leading-tight">
+                  <h4 className="font-editorial italic text-base font-black text-[#341F14] truncate leading-tight">
                     {item.name}
                   </h4>
-                  <p className="font-arcade text-[8px] text-[#FF5722] truncate">
-                    {item.role.toUpperCase()}
+                  <p className="font-script text-xs font-bold text-[#C8521A] truncate">
+                    {item.role}
                   </p>
-                  <p className="font-mono text-[9px] text-black/60 truncate mt-0.5">
-                    FAVE: {item.favorite}
+                  <p className="font-sans text-[10px] text-[#341F14]/60 truncate mt-0.5">
+                    Fave: {item.favorite}
                   </p>
                 </div>
               </div>
@@ -70,23 +70,23 @@ export function TestimonialsSection() {
           ))}
         </div>
 
-        {/* Viral Meme Card from 10003.jpg */}
-        <div className="mt-10 border-4 border-black bg-[#FFE600] p-6 shadow-[8px_8px_0_0_#000] flex flex-col md:flex-row items-center gap-6">
-          <div className="size-24 shrink-0 border-3 border-black overflow-hidden bg-black shadow-[4px_4px_0_0_#000]">
+        {/* 70s Retro Viral Meme Card */}
+        <div className="mt-10 border-4 border-[#341F14] bg-[#FBE48A] p-6 shadow-70s flex flex-col md:flex-row items-center gap-6">
+          <div className="size-24 shrink-0 border-3 border-[#341F14] rounded-full overflow-hidden bg-[#341F14] shadow-70s">
             <img
               src="/cafe_pic/10003.jpg"
-              alt="Isang tasang kape lang ako kada araw meme"
+              alt="Isang tasang kape lang meme"
               className="h-full w-full object-cover"
             />
           </div>
-          <div className="space-y-1">
-            <span className="font-arcade text-[9px] bg-black text-[#FFE600] px-2 py-0.5 border border-black inline-block">
-              VIRAL RORA MEME // #1TASALANG
+          <div className="space-y-1.5">
+            <span className="font-editorial italic font-bold text-xs bg-[#341F14] text-[#FBE48A] px-3 py-1 border border-[#341F14] inline-block shadow-70s-sm">
+              ✿ Viral Rosa Meme // #IsangTasaLang
             </span>
-            <h3 className="font-pixel text-2xl font-bold text-black">
-              &quot;ISANG TASANG KAPE LANG AKO KADA ARAW...&quot;
+            <h3 className="font-editorial text-2xl font-black italic text-[#341F14]">
+              &ldquo;Isang tasang kape lang ako kada araw...&rdquo;
             </h3>
-            <p className="font-mono text-xs text-black/85">
+            <p className="font-sans text-sm text-[#341F14]/85 leading-relaxed">
               Come by Queen Aurora Garden Resort for your giant cup of coffee and hours of late-night kwentuhan until 1:00 AM.
             </p>
           </div>

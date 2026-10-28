@@ -3,24 +3,24 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'RORA DOSE ☕ [PIXEL ED.] | Waterfront Specialty Cafe · Cabuyao',
-  description: 'Specialty coffee by Laguna de Bay at Queen Aurora Garden Resort. Open daily 10 AM to 1 AM.',
+  title: 'ROSA DOSE',
 }
 
 export const viewport: Viewport = {
   colorScheme: 'light',
-  themeColor: '#FFE600',
+  themeColor: '#C8521A',
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="antialiased bg-[#FFFDF0] text-black selection:bg-[#FFE600] selection:text-black font-mono">
+      <body className="antialiased bg-[#FAF4E8] text-[#341F14] selection:bg-[#FBE48A] selection:text-[#341F14] font-sans">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
   )
 }
+
 
 

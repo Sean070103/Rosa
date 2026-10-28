@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { Sparkles, Clock, Users, Wind, Compass } from 'lucide-react'
 import { SPACES_DATA } from '@/lib/menu-data'
 
 export function AmbianceSection() {
@@ -9,96 +8,93 @@ export function AmbianceSection() {
   const activeSpace = SPACES_DATA.find((s) => s.id === activeSpaceId) || SPACES_DATA[0]
 
   return (
-    <section id="spaces" className="border-b-4 border-black bg-[#00F0FF] px-4 py-20 sm:px-8">
+    <section id="spaces" className="border-b-4 border-[#341F14] bg-[#FBE48A] px-4 py-20 sm:px-8">
       <div className="mx-auto max-w-7xl">
-        {/* Header */}
+        {/* 70s Editorial Header */}
         <div className="max-w-2xl mb-10 space-y-2">
-          <div className="inline-block border-2 border-black bg-[#FFE600] px-3 py-1 font-arcade text-[10px] text-black shadow-[3px_3px_0_0_#000]">
-            ★ SECTION 02 // SANCTUARY MAP ★
+          <div className="inline-flex items-center gap-2 border-2 border-[#341F14] bg-[#C8521A] px-3.5 py-1 text-xs font-bold text-[#FAF4E8] shadow-70s-sm uppercase tracking-wider">
+            ✿ Section 02 // The Sanctuary Map ✿
           </div>
-          <h2 className="font-pixel text-4xl font-black text-black sm:text-6xl">
-            SPACES DESIGNED TO LINGER.
+          <h2 className="font-editorial text-4xl sm:text-6xl font-black italic text-[#341F14] tracking-tight">
+            Spaces Designed to Linger.
           </h2>
-          <p className="font-mono text-xs text-black/90">
-            Inside Queen Aurora Garden Resort in Cabuyao, Laguna. Find your zone—by the poolside, at our high-speed study desks, or deep in late-night kwentuhan.
+          <p className="font-sans text-sm text-[#341F14]/90 leading-relaxed max-w-xl">
+            Inside Queen Aurora Garden Resort in Cabuyao, Laguna. Find your zone—by the poolside, at our high-speed study desks, or deep in late-night kwentuhan by the bay.
           </p>
         </div>
 
-        {/* Space Navigation Tabs */}
-        <div className="flex gap-2 overflow-x-auto pb-4 mb-6 no-scrollbar font-silk text-xs">
+        {/* Space Navigation Tabs — 70s Pill Style */}
+        <div className="flex gap-2.5 overflow-x-auto pb-4 mb-6 no-scrollbar">
           {SPACES_DATA.map((space) => (
             <button
               key={space.id}
               onClick={() => setActiveSpaceId(space.id)}
-              className={`neo-btn whitespace-nowrap px-4 py-2.5 font-bold ${
+              className={`retro-btn whitespace-nowrap px-5 py-2.5 font-editorial italic text-xs font-bold transition-all ${
                 activeSpaceId === space.id
-                  ? 'bg-black text-[#FFE600]'
-                  : 'bg-white text-black hover:bg-neutral-100'
+                  ? 'bg-[#341F14] text-[#FBE48A]'
+                  : 'bg-[#FFFDF7] text-[#341F14] hover:bg-[#FAF4E8]'
               }`}
             >
-              {space.name.toUpperCase()}
+              {space.name}
             </button>
           ))}
         </div>
 
-        {/* Active Space Display */}
-        <div className="grid gap-8 lg:grid-cols-12 lg:items-center border-4 border-black bg-white p-6 sm:p-8 shadow-[8px_8px_0_0_#000]">
+        {/* Active Space Display Card */}
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-center border-4 border-[#341F14] bg-[#FFFDF7] p-6 sm:p-8 shadow-70s-xl">
           
-          {/* Visual Side */}
-          <div className="relative lg:col-span-7 aspect-[4/3] overflow-hidden border-4 border-black bg-black">
+          {/* Visual Side — Warm Textured Photography */}
+          <div className="relative lg:col-span-7 aspect-[4/3] overflow-hidden border-4 border-[#341F14] rounded-t-[50px] bg-[#341F14]">
             <img
               src={activeSpace.image}
               alt={activeSpace.name}
               className="h-full w-full object-cover"
             />
-            <div className="absolute top-3 left-3 border-2 border-black bg-[#FFE600] px-3 py-1 font-arcade text-[10px] text-black shadow-[3px_3px_0_0_#000]">
-              {activeSpace.tag}
+            <div className="absolute top-4 left-4 border-2 border-[#341F14] bg-[#FBE48A] px-3 py-1 font-editorial italic text-xs font-bold text-[#341F14] shadow-70s-sm">
+              ✿ {activeSpace.tag}
             </div>
           </div>
 
           {/* Details Side */}
           <div className="lg:col-span-5 space-y-5">
             <div>
-              <p className="font-arcade text-[10px] text-[#FF5722]">
-                {activeSpace.subtitle.toUpperCase()}
+              <p className="font-script text-base text-[#C8521A] font-bold">
+                {activeSpace.subtitle}
               </p>
-              <h3 className="font-pixel text-3xl font-bold text-black mt-1">
+              <h3 className="font-editorial text-3xl font-black italic text-[#341F14] mt-1 leading-tight">
                 {activeSpace.name}
               </h3>
             </div>
 
-            <p className="font-mono text-xs leading-relaxed text-black/85">
+            <p className="font-sans text-sm leading-relaxed text-[#341F14]/85">
               {activeSpace.description}
             </p>
 
             {/* Atmosphere Specs Grid */}
-            <div className="grid grid-cols-2 gap-3 border-3 border-black bg-[#FFFDF0] p-4 text-xs font-mono">
+            <div className="grid grid-cols-2 gap-3 border-3 border-[#341F14] bg-[#FAF4E8] p-4 shadow-70s-sm">
               <div>
-                <p className="font-arcade text-[8px] text-black/60">[BEST TIME]</p>
-                <p className="font-bold text-black text-[11px] mt-0.5">{activeSpace.stats.bestTime}</p>
+                <p className="font-sans text-[10px] font-bold uppercase tracking-wider text-[#341F14]/60">Best Time</p>
+                <p className="font-editorial italic font-bold text-[#341F14] text-sm mt-0.5">{activeSpace.stats.bestTime}</p>
               </div>
-
               <div>
-                <p className="font-arcade text-[8px] text-black/60">[SEATING]</p>
-                <p className="font-bold text-black text-[11px] mt-0.5">{activeSpace.stats.capacity}</p>
+                <p className="font-sans text-[10px] font-bold uppercase tracking-wider text-[#341F14]/60">Seating</p>
+                <p className="font-editorial italic font-bold text-[#341F14] text-sm mt-0.5">{activeSpace.stats.capacity}</p>
               </div>
-
               <div>
-                <p className="font-arcade text-[8px] text-black/60">[BREEZE]</p>
-                <p className="font-bold text-black text-[11px] mt-0.5">{activeSpace.stats.breeze}</p>
+                <p className="font-sans text-[10px] font-bold uppercase tracking-wider text-[#341F14]/60">Bay Breeze</p>
+                <p className="font-editorial italic font-bold text-[#341F14] text-sm mt-0.5">{activeSpace.stats.breeze}</p>
               </div>
-
               <div>
-                <p className="font-arcade text-[8px] text-black/60">[VIBE LEVEL]</p>
-                <p className="font-bold text-black text-[11px] mt-0.5">{activeSpace.stats.vibe}</p>
+                <p className="font-sans text-[10px] font-bold uppercase tracking-wider text-[#341F14]/60">Vibe Level</p>
+                <p className="font-editorial italic font-bold text-[#341F14] text-sm mt-0.5">{activeSpace.stats.vibe}</p>
               </div>
             </div>
 
             <a
               href="#reserve"
-              className="neo-btn inline-flex items-center gap-2 bg-[#A3E635] px-4 py-2.5 font-arcade text-[10px] text-black"
+              className="retro-btn inline-flex items-center gap-2 bg-[#C8521A] text-[#FAF4E8] px-5 py-2.5 font-sans font-bold text-xs uppercase tracking-wider hover:bg-[#341F14]"
             >
-              <span>[▶] BOOK A SEAT IN THIS SPACE</span>
+              <span>Book a Seat in This Space</span>
             </a>
           </div>
 

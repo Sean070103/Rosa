@@ -1,33 +1,33 @@
 'use client'
 
 import { useState } from 'react'
-import { SlidersHorizontal, Droplets, Flame, Award, HeartHandshake } from 'lucide-react'
+import { SlidersHorizontal } from 'lucide-react'
 
 export function CraftSection() {
   const [roastSelection, setRoastSelection] = useState<'light' | 'medium' | 'dark'>('light')
 
   const roastProfiles = {
     light: {
-      title: 'LIGHT ROAST // BENGUET ATOK WASHED',
+      title: 'Light Roast // Benguet Atok Washed',
       flavor: 'High floral acidity, crisp green apple, delicate jasmine, and sweet citrus zest.',
-      elevation: '1,650M ABOVE SEA LEVEL',
-      brewMethod: 'JAPANESE V60 CONE POUR-OVER AT 92°C',
+      elevation: '1,650M Above Sea Level',
+      brewMethod: 'Japanese V60 Cone Pour-Over at 92°C',
       metrics: { acidity: 90, body: 40, sweetness: 85 },
       image: '/cafe_pic/10007.jpg',
     },
     medium: {
-      title: 'MEDIUM ROAST // MT. APO ANAEROBIC',
+      title: 'Medium Roast // Mt. Apo Anaerobic',
       flavor: 'Wild stone fruit, juicy plum, balanced cacao butter sweetness, and winey finish.',
-      elevation: '1,500M ABOVE SEA LEVEL',
-      brewMethod: 'LEVER DOUBLE SHOT & ICED RIPPLE',
+      elevation: '1,500M Above Sea Level',
+      brewMethod: 'Lever Double Shot & Iced Ripple',
       metrics: { acidity: 65, body: 75, sweetness: 90 },
       image: '/cafe_pic/10009.jpg',
     },
     dark: {
-      title: 'DARK ROAST // LIPA HERITAGE LIBERICA',
+      title: 'Dark Roast // Lipa Heritage Liberica',
       flavor: 'Smoked cedar wood, dark baker chocolate, ripe jackfruit undertones, and dense crema.',
-      elevation: 'SOUTHERN LUZON FOOTHILLS',
-      brewMethod: '18H SLOW DRIP COLD BREW',
+      elevation: 'Southern Luzon Foothills',
+      brewMethod: '18H Slow Drip Cold Brew',
       metrics: { acidity: 20, body: 95, sweetness: 70 },
       image: '/cafe_pic/10012.jpg',
     },
@@ -36,80 +36,80 @@ export function CraftSection() {
   const current = roastProfiles[roastSelection]
 
   return (
-    <section id="craft" className="border-b-4 border-black bg-[#FFFDF0] px-4 py-20 sm:px-8">
+    <section id="craft" className="border-b-4 border-[#341F14] bg-[#FAF4E8] px-4 py-20 sm:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
           
           {/* Left Craft Story */}
           <div className="lg:col-span-6 space-y-6">
-            <div className="inline-block border-2 border-black bg-[#A3E635] px-3 py-1 font-arcade text-[10px] text-black shadow-[3px_3px_0_0_#000]">
-              ★ SECTION 03 // ETHICAL TERROIR ★
+            <div className="inline-flex items-center gap-1.5 border-2 border-[#341F14] bg-[#FBE48A] px-3.5 py-1 text-xs font-bold text-[#341F14] shadow-70s-sm uppercase tracking-wider">
+              ✿ Section 03 // Ethical Terroir ✿
             </div>
 
-            <h2 className="font-pixel text-4xl font-black text-black sm:text-6xl">
-              FROM HIGHLAND PEAKS TO THE BAY.
+            <h2 className="font-editorial text-4xl sm:text-6xl font-black italic text-[#341F14] tracking-tight leading-tight">
+              From Highland Peaks to the Bay.
             </h2>
 
-            <p className="font-mono text-xs leading-relaxed text-black/85">
+            <p className="font-sans text-sm leading-relaxed text-[#341F14]/85">
               Direct partnership with smallholder farming cooperatives in Benguet and Bansalan, Mt. Apo. We roast in micro-batches and calibrate water remineralization to 120 PPM for maximum cup sweetness.
             </p>
 
-            {/* Photo Cards Row (10017.jpg Portafilter & 10008.jpg Tasting Flight) */}
+            {/* Photo Cards Row */}
             <div className="grid grid-cols-2 gap-4 pt-2">
-              <div className="border-3 border-black bg-white p-2 shadow-[4px_4px_0_0_#000]">
-                <div className="aspect-square overflow-hidden border-2 border-black bg-black mb-2">
+              <div className="border-3 border-[#341F14] bg-[#FFFDF7] p-2.5 shadow-70s">
+                <div className="aspect-square overflow-hidden border-2 border-[#341F14] rounded-t-3xl bg-[#341F14] mb-2.5">
                   <img
                     src="/cafe_pic/10017.jpg"
                     alt="Precision tamped portafilter"
                     className="h-full w-full object-cover"
                   />
                 </div>
-                <p className="font-arcade text-[8px] text-black">PRECISION EXTRACTION</p>
-                <p className="font-mono text-[9px] text-black/60">Tamped to 20kg pressure.</p>
+                <p className="font-editorial italic text-sm font-black text-[#341F14]">Precision Extraction</p>
+                <p className="font-sans text-[10px] text-[#341F14]/60">Tamped to 20kg pressure.</p>
               </div>
 
-              <div className="border-3 border-black bg-[#FFE600] p-2 shadow-[4px_4px_0_0_#000]">
-                <div className="aspect-square overflow-hidden border-2 border-black bg-black mb-2">
+              <div className="border-3 border-[#341F14] bg-[#FBE48A] p-2.5 shadow-70s">
+                <div className="aspect-square overflow-hidden border-2 border-[#341F14] rounded-t-3xl bg-[#341F14] mb-2.5">
                   <img
                     src="/cafe_pic/10008.jpg"
                     alt="Coffee cupping flight"
                     className="h-full w-full object-cover"
                   />
                 </div>
-                <p className="font-arcade text-[8px] text-black">CUPPING FLIGHT</p>
-                <p className="font-mono text-[9px] text-black/60">Multi-origin tasting trays.</p>
+                <p className="font-editorial italic text-sm font-black text-[#341F14]">Cupping Flight</p>
+                <p className="font-sans text-[10px] text-[#341F14]/60">Multi-origin tasting trays.</p>
               </div>
             </div>
           </div>
 
-          {/* Right Interactive Roast Profile Dial */}
-          <div className="lg:col-span-6 border-4 border-black bg-white p-6 sm:p-8 shadow-[8px_8px_0_0_#000] space-y-5">
-            <div className="flex items-center justify-between border-b-3 border-black pb-3">
+          {/* Right Interactive Roast Profile — 70s Editorial Style */}
+          <div className="lg:col-span-6 border-4 border-[#341F14] bg-[#FFFDF7] p-6 sm:p-8 shadow-70s-xl space-y-5">
+            <div className="flex items-center justify-between border-b-2 border-dashed border-[#341F14]/40 pb-3">
               <div>
-                <p className="font-arcade text-[9px] text-[#FF5722]">
-                  [CALIBRATE ROAST PROFILE]
+                <p className="font-script text-base font-bold text-[#C8521A]">
+                  Calibrate Roast Profile
                 </p>
-                <h3 className="font-pixel text-2xl font-bold text-black mt-0.5">
-                  THE BEAN SPECTRUM
+                <h3 className="font-editorial text-2xl font-black italic text-[#341F14] mt-0.5">
+                  The Bean Spectrum
                 </h3>
               </div>
-              <SlidersHorizontal className="size-5 text-black" />
+              <SlidersHorizontal className="size-5 text-[#C8521A]" />
             </div>
 
             {/* Selector Buttons */}
-            <div className="grid grid-cols-3 gap-2 font-silk text-xs">
+            <div className="grid grid-cols-3 gap-2">
               {[
-                { id: 'light', label: 'BENGUET LIGHT', color: 'bg-[#FFE600]' },
-                { id: 'medium', label: 'APO MEDIUM', color: 'bg-[#00F0FF]' },
-                { id: 'dark', label: 'LIBERICA BOLD', color: 'bg-[#FF8A00]' },
+                { id: 'light', label: 'Benguet Light' },
+                { id: 'medium', label: 'Apo Medium' },
+                { id: 'dark', label: 'Liberica Bold' },
               ].map((btn) => (
                 <button
                   key={btn.id}
                   onClick={() => setRoastSelection(btn.id as 'light' | 'medium' | 'dark')}
-                  className={`neo-btn py-2.5 text-center font-bold ${
+                  className={`retro-btn py-2.5 text-center font-editorial italic text-xs font-bold ${
                     roastSelection === btn.id
-                      ? `${btn.color} text-black`
-                      : 'bg-[#FFFDF0] text-black'
+                      ? 'bg-[#C8521A] text-[#FAF4E8]'
+                      : 'bg-[#FAF4E8] text-[#341F14] hover:bg-[#FBE48A]'
                   }`}
                 >
                   {btn.label}
@@ -118,9 +118,9 @@ export function CraftSection() {
             </div>
 
             {/* Details for Selected Roast */}
-            <div className="border-3 border-black bg-[#FFFDF0] p-4 space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="size-14 shrink-0 border-2 border-black overflow-hidden bg-black">
+            <div className="border-3 border-[#341F14] bg-[#FAF4E8] p-5 space-y-4">
+              <div className="flex items-center gap-4">
+                <div className="size-16 shrink-0 border-2 border-[#341F14] rounded-full overflow-hidden bg-[#341F14]">
                   <img
                     src={current.image}
                     alt={current.title}
@@ -128,63 +128,43 @@ export function CraftSection() {
                   />
                 </div>
                 <div>
-                  <h4 className="font-pixel text-lg font-bold text-black leading-tight">
+                  <h4 className="font-editorial text-lg font-black italic text-[#341F14] leading-tight">
                     {current.title}
                   </h4>
-                  <p className="font-arcade text-[8px] text-[#FF5722] mt-0.5">
+                  <p className="font-script text-sm text-[#C8521A] font-bold mt-0.5">
                     {current.elevation}
                   </p>
                 </div>
               </div>
 
-              <p className="font-mono text-xs text-black/80 leading-relaxed">
+              <p className="font-sans text-xs text-[#341F14]/85 leading-relaxed">
                 {current.flavor}
               </p>
 
-              {/* 8-bit progress meters */}
-              <div className="space-y-2.5 pt-2 border-t-2 border-black/20 font-mono text-xs">
-                <div>
-                  <div className="flex justify-between font-arcade text-[9px] text-black mb-1">
-                    <span>ACIDITY (FRUIT BRIGHTNESS)</span>
-                    <span>{current.metrics.acidity}%</span>
+              {/* Warm Analog Progress Meters */}
+              <div className="space-y-3 pt-2 border-t-2 border-dashed border-[#341F14]/30">
+                {[
+                  { label: 'Acidity (Fruit Brightness)', value: current.metrics.acidity, color: 'bg-[#C8521A]' },
+                  { label: 'Body (Velvet Texture)', value: current.metrics.body, color: 'bg-[#341F14]' },
+                  { label: 'Sweetness (Wild Honey)', value: current.metrics.sweetness, color: 'bg-[#FBE48A]' },
+                ].map(({ label, value, color }) => (
+                  <div key={label}>
+                    <div className="flex justify-between font-sans text-[10px] font-bold text-[#341F14]/80 mb-1.5">
+                      <span className="uppercase tracking-wider">{label}</span>
+                      <span>{value}%</span>
+                    </div>
+                    <div className="h-3.5 w-full border-2 border-[#341F14] bg-[#FFFDF7] overflow-hidden p-0.5">
+                      <div
+                        className={`h-full ${color} transition-all duration-500 border-r border-[#341F14]`}
+                        style={{ width: `${value}%` }}
+                      />
+                    </div>
                   </div>
-                  <div className="h-3 w-full border-2 border-black bg-white overflow-hidden p-0.5">
-                    <div
-                      className="h-full bg-[#FF3366] transition-all duration-300"
-                      style={{ width: `${current.metrics.acidity}%` }}
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <div className="flex justify-between font-arcade text-[9px] text-black mb-1">
-                    <span>BODY (VELVET TEXTURE)</span>
-                    <span>{current.metrics.body}%</span>
-                  </div>
-                  <div className="h-3 w-full border-2 border-black bg-white overflow-hidden p-0.5">
-                    <div
-                      className="h-full bg-[#00F0FF] transition-all duration-300"
-                      style={{ width: `${current.metrics.body}%` }}
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <div className="flex justify-between font-arcade text-[9px] text-black mb-1">
-                    <span>SWEETNESS (WILD HONEY)</span>
-                    <span>{current.metrics.sweetness}%</span>
-                  </div>
-                  <div className="h-3 w-full border-2 border-black bg-white overflow-hidden p-0.5">
-                    <div
-                      className="h-full bg-[#FFE600] transition-all duration-300"
-                      style={{ width: `${current.metrics.sweetness}%` }}
-                    />
-                  </div>
-                </div>
+                ))}
               </div>
 
-              <p className="font-arcade text-[8px] text-black/70 pt-1">
-                EXTRACTION: {current.brewMethod}
+              <p className="font-script text-sm text-[#C8521A] font-bold pt-1">
+                Extraction: {current.brewMethod}
               </p>
             </div>
           </div>
