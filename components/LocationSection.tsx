@@ -23,27 +23,33 @@ export function LocationSection() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Lakefront Branch */}
               <div className="border-3 border-[#341F14] bg-[#FFFDF7] p-4 shadow-70s space-y-1.5">
-                <span className="font-script text-sm font-bold text-[#C8521A] block">Location</span>
-                <p className="font-editorial text-xl italic font-black text-[#341F14]">
-                  Queen Aurora Resort
+                <span className="font-script text-sm font-bold text-[#C8521A] block">Branch 01 · Waterfront</span>
+                <p className="font-editorial text-lg sm:text-xl italic font-black text-[#341F14]">
+                  🌊 Lakefront Roastery
                 </p>
                 <p className="font-sans text-xs text-[#341F14]/80 leading-relaxed">
-                  Cabuyao, Laguna 4025, PH
+                  Queen Aurora Resort, Cabuyao, Laguna
                   <br />
-                  <span className="text-[#341F14]/60">(Free gate entry for cafe patrons)</span>
+                  <span className="text-[#C8521A] font-bold">10:00 AM — 1:00 AM Daily</span>
+                  <br />
+                  <span className="text-[#341F14]/60">(Free resort gate pass for patrons)</span>
                 </p>
               </div>
 
+              {/* Niugan Branch */}
               <div className="border-3 border-[#341F14] bg-[#FFFDF7] p-4 shadow-70s space-y-1.5">
-                <span className="font-script text-sm font-bold text-[#C8521A] block">Hours</span>
-                <p className="font-editorial text-xl italic font-black text-[#341F14]">
-                  10:00 AM — 1:00 AM
+                <span className="font-script text-sm font-bold text-[#166534] block">Branch 02 · Downtown</span>
+                <p className="font-editorial text-lg sm:text-xl italic font-black text-[#341F14]">
+                  🌿 Niugan Hub &amp; Study
                 </p>
                 <p className="font-sans text-xs text-[#341F14]/80 leading-relaxed">
-                  Open 7 Days a Week
+                  Old National Hwy, Niugan, Cabuyao
                   <br />
-                  <span className="text-[#341F14]/60">Sunset peak: 4:45 PM — 6:15 PM</span>
+                  <span className="text-[#166534] font-bold">7:00 AM — 11:00 PM Daily</span>
+                  <br />
+                  <span className="text-[#341F14]/60">(AC study pods &amp; curbside pickup)</span>
                 </p>
               </div>
             </div>

@@ -4,8 +4,9 @@ import { useState } from 'react'
 import { Calendar, Users, MapPin, Sparkles, Check, Sun, Copy, Phone } from 'lucide-react'
 
 export function ReservationSection() {
+  const [branch, setBranch] = useState<'lake' | 'niugan'>('lake')
   const [guests, setGuests] = useState(2)
-  const [seatingArea, setSeatingArea] = useState('Laguna Bay Waterfront Veranda')
+  const [seatingArea, setSeatingArea] = useState('Waterfront Bay Veranda')
   const [selectedDate, setSelectedDate] = useState('Today (Sunset Session)')
   const [selectedTime, setSelectedTime] = useState('5:15 PM · Golden Hour Peak')
   const [name, setName] = useState('')
@@ -17,18 +18,21 @@ export function ReservationSection() {
   const handleBook = (e: React.FormEvent) => {
     e.preventDefault()
     if (!name || !phone) return
-    const ref = `RD-RES-${Math.floor(1000 + Math.random() * 9000)}`
+    const prefix = branch === 'niugan' ? 'RES-NGN' : 'RES-LKE'
+    const ref = `${prefix}-${Math.floor(1000 + Math.random() * 9000)}`
     setBookingRef(ref)
     setIsBooked(true)
   }
 
   const copyBooking = () => {
-    const text = `🌅 RORA DOSE RESERVATION #${bookingRef}
+    const branchName = branch === 'niugan' ? 'ROSA DOSE NIUGAN (Downtown Cabuyao)' : 'ROSA DOSE LAKE (Queen Aurora Resort)'
+    const text = `🌅 ROSA DOSE RESERVATION #${bookingRef}
+BRANCH: ${branchName}
 NAME: ${name} (${phone})
 GUESTS: ${guests}
 AREA: ${seatingArea}
 TIME: ${selectedDate} at ${selectedTime}
-📍 Queen Aurora Garden Resort, Cabuyao, Laguna`
+📍 ${branch === 'niugan' ? 'Niugan Old National Highway, Cabuyao' : 'Queen Aurora Garden Resort, Cabuyao, Laguna'}`
 
     navigator.clipboard.writeText(text)
     setCopied(true)
@@ -120,6 +124,42 @@ TIME: ${selectedDate} at ${selectedTime}
                     </p>
                   </div>
 
+                  {/* Branch selector */}
+                  <div>
+                    <label className="font-arcade text-[9px] text-black block mb-1.5">
+                      [SELECT BRANCH]
+                    </label>
+                    <div className="grid grid-cols-2 gap-2 font-silk text-xs">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setBranch('lake')
+                          setSeatingArea('Waterfront Bay Veranda')
+                        }}
+                        className={`neo-btn p-2.5 text-left ${
+                          branch === 'lake' ? 'bg-[#FFE600] text-black font-bold' : 'bg-[#FFFDF0] text-black'
+                        }`}
+                      >
+                        <p className="font-bold">🌊 LAKE BRANCH</p>
+                        <p className="text-[9px] text-black/70">Queen Aurora Resort</p>
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setBranch('niugan')
+                          setSeatingArea('Study Stalls & Co-Work (AC)')
+                        }}
+                        className={`neo-btn p-2.5 text-left ${
+                          branch === 'niugan' ? 'bg-[#A3E635] text-black font-bold' : 'bg-[#FFFDF0] text-black'
+                        }`}
+                      >
+                        <p className="font-bold">🌿 NIUGAN BRANCH</p>
+                        <p className="text-[9px] text-black/70">Downtown Cabuyao</p>
+                      </button>
+                    </div>
+                  </div>
+
                   {/* Guests selector */}
                   <div>
                     <label className="font-arcade text-[9px] text-black block mb-1.5">
@@ -146,14 +186,13 @@ TIME: ${selectedDate} at ${selectedTime}
                   {/* Area selection */}
                   <div>
                     <label className="font-arcade text-[9px] text-black block mb-1.5">
-                      [SEATING ZONE]
+                      [SEATING ZONE - {branch === 'niugan' ? 'NIUGAN' : 'LAKEFRONT'}]
                     </label>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 font-silk text-xs">
-                      {[
-                        'Waterfront Bay Veranda',
-                        'Indoor Slow Bar AC',
-                        'Garden Courtyard',
-                      ].map((area) => (
+                      {(branch === 'lake'
+                        ? ['Waterfront Bay Veranda', 'Indoor Slow Bar AC', 'Garden Courtyard']
+                        : ['Study Stalls & Co-Work (AC)', 'Main Espresso Hall', 'Alfresco Patio']
+                      ).map((area) => (
                         <button
                           key={area}
                           type="button"

@@ -1,3 +1,16 @@
+export type BranchId = 'niugan' | 'lake'
+
+export interface BranchInfo {
+  id: BranchId
+  name: string
+  shortName: string
+  tagline: string
+  address: string
+  hours: string
+  phone: string
+  zones: string[]
+}
+
 export interface MenuItem {
   id: string
   name: string
@@ -14,6 +27,7 @@ export interface MenuItem {
   isPopular?: boolean
   calories?: string
   isAvailable?: boolean
+  availableBranches?: BranchId[]
 }
 
 export interface CartItem {
@@ -26,11 +40,13 @@ export interface CartItem {
   quantity: number
   totalPrice: number
   customizationSummary: string
+  branch?: BranchId
 }
 
 export interface ReservationData {
+  branch: BranchId
   guestCount: number
-  seatingArea: 'veranda' | 'indoor' | 'garden'
+  seatingArea: string
   date: string
   timeSlot: string
   name: string
@@ -40,6 +56,7 @@ export interface ReservationData {
 
 export interface AdminOrder {
   id: string
+  branch: BranchId
   time: string
   customer: string
   mode: 'dine-in' | 'takeaway'
@@ -58,6 +75,7 @@ export interface AdminOrder {
 
 export interface AdminReservation {
   id: string
+  branch: BranchId
   guestName: string
   phone: string
   guests: number

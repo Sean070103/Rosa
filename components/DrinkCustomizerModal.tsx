@@ -82,7 +82,7 @@ export function DrinkCustomizerModal({
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-xs animate-in fade-in duration-150">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-xs animate-in fade-in duration-150">
       <div 
         className="relative w-full max-w-lg max-h-[92vh] overflow-y-auto border-4 border-black bg-[#FFFDF0] text-black shadow-[12px_12px_0_0_#000]"
         onClick={(e) => e.stopPropagation()}

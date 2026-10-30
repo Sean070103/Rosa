@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { ShoppingBag, ArrowRight } from 'lucide-react'
-import { MenuItem, CartItem } from '@/lib/types'
+import { MenuItem, CartItem, BranchId } from '@/lib/types'
 import { MENU_ITEMS } from '@/lib/menu-data'
 import { Header } from '@/components/Header'
 import { Hero } from '@/components/Hero'
@@ -19,6 +19,7 @@ import { LocationSection } from '@/components/LocationSection'
 import { Footer } from '@/components/Footer'
 
 export default function Page() {
+  const [customerBranch, setCustomerBranch] = useState<BranchId>('lake')
   const [selectedMenuItem, setSelectedMenuItem] = useState<MenuItem | null>(null)
   const [isCustomizerOpen, setIsCustomizerOpen] = useState(false)
   const [isTrayOpen, setIsTrayOpen] = useState(false)
@@ -117,6 +118,8 @@ export default function Page() {
         trayCount={trayCount}
         onOpenTray={() => setIsTrayOpen(true)}
         onOpenReserve={scrollToReservation}
+        selectedBranch={customerBranch}
+        onSelectBranch={setCustomerBranch}
       />
 
       {/* Hero Section */}
@@ -172,6 +175,8 @@ export default function Page() {
         onUpdateQuantity={handleUpdateQuantity}
         onRemoveItem={handleRemoveItem}
         onClearTray={handleClearTray}
+        selectedBranch={customerBranch}
+        onSelectBranch={setCustomerBranch}
       />
 
       {/* Floating Tasting Tray Pill */}

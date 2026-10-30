@@ -1,7 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { ArrowUp, Send } from 'lucide-react'
+import Link from 'next/link'
+import { ArrowUp, Send, ShieldCheck } from 'lucide-react'
 
 export function Footer() {
   const [email, setEmail] = useState('')
@@ -75,6 +76,9 @@ export function Footer() {
                 <li><a href="#rewards" className="hover:text-[#FBE48A] transition-colors">Passport</a></li>
                 <li><a href="#visit" className="hover:text-[#FBE48A] transition-colors">Directions</a></li>
                 <li><a href="https://maps.app.goo.gl/c1mfgMUK8GrFe26d9?g_st=ipc" target="_blank" rel="noreferrer" className="hover:text-[#FBE48A] transition-colors">Google Maps</a></li>
+                <li className="pt-1 border-t border-[#FAF4E8]/10"><Link href="/admin/lake" className="text-[#FBE48A]/80 hover:text-[#FBE48A] transition-colors flex items-center gap-1"><span>🌊 adminLAKE</span></Link></li>
+                <li><Link href="/admin/niugan" className="text-[#A3E635]/80 hover:text-[#A3E635] transition-colors flex items-center gap-1"><span>🌿 adminNIUGAN</span></Link></li>
+                <li><Link href="/admin" className="text-white/60 hover:text-white transition-colors text-[10px]"><span>📊 Multi-Store Owner HQ</span></Link></li>
               </ul>
             </div>
           </div>

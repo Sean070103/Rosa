@@ -1,8 +1,32 @@
-import { AdminOrder, AdminReservation } from './types'
+import { AdminOrder, AdminReservation, BranchId, BranchInfo } from './types'
 
-export const INITIAL_ADMIN_ORDERS: AdminOrder[] = [
+export const BRANCH_CONFIG: Record<BranchId, BranchInfo> = {
+  lake: {
+    id: 'lake',
+    name: 'Rosa Dose Lake (Waterfront Roastery)',
+    shortName: 'LAKE BRANCH',
+    tagline: 'Waterfront Sunset Roastery & Garden Resort',
+    address: 'Queen Aurora Garden Resort, Waterfront Bay, Cabuyao, Laguna',
+    hours: '10:00 AM — 1:00 AM Daily',
+    phone: '0927 953 2665',
+    zones: ['Waterfront Bay Veranda', 'Resort Poolside Deck', 'Garden Courtyard Gazebo', 'Indoor Slow Bar AC'],
+  },
+  niugan: {
+    id: 'niugan',
+    name: 'Rosa Dose Niugan (Downtown Espresso & Hub)',
+    shortName: 'NIUGAN BRANCH',
+    tagline: 'Downtown Specialty Espresso Bar & Study Lounge',
+    address: 'Niugan Commercial District, Old National Hwy, Cabuyao, Laguna',
+    hours: '7:00 AM — 11:00 PM Daily',
+    phone: '0928 412 8891',
+    zones: ['Study Stalls & Co-Work (AC)', 'Main Espresso Hall', 'Alfresco Patio', 'Curbside Drive-Up / To-Go'],
+  },
+}
+
+export const INITIAL_ADMIN_ORDERS_LAKE: AdminOrder[] = [
   {
-    id: 'RD-742',
+    id: 'RD-LKE-742',
+    branch: 'lake',
     time: '10:32 AM',
     customer: 'Camille S.',
     mode: 'dine-in',
@@ -33,7 +57,8 @@ export const INITIAL_ADMIN_ORDERS: AdminOrder[] = [
     paymentMethod: 'GCash',
   },
   {
-    id: 'RD-743',
+    id: 'RD-LKE-743',
+    branch: 'lake',
     time: '10:35 AM',
     customer: 'Mark T.',
     mode: 'dine-in',
@@ -58,7 +83,8 @@ export const INITIAL_ADMIN_ORDERS: AdminOrder[] = [
     paymentMethod: 'Maya',
   },
   {
-    id: 'RD-744',
+    id: 'RD-LKE-744',
+    branch: 'lake',
     time: '10:28 AM',
     customer: 'Atty. Valderrama',
     mode: 'takeaway',
@@ -83,7 +109,8 @@ export const INITIAL_ADMIN_ORDERS: AdminOrder[] = [
     paymentMethod: 'Card',
   },
   {
-    id: 'RD-740',
+    id: 'RD-LKE-740',
+    branch: 'lake',
     time: '10:14 AM',
     customer: 'Denise R.',
     mode: 'dine-in',
@@ -108,11 +135,12 @@ export const INITIAL_ADMIN_ORDERS: AdminOrder[] = [
     paymentMethod: 'Cash',
   },
   {
-    id: 'RD-739',
+    id: 'RD-LKE-739',
+    branch: 'lake',
     time: '09:58 AM',
     customer: 'Leo Bautista',
     mode: 'dine-in',
-    table: 'Table 11 (Study Hub)',
+    table: 'Table 11 (Slow Bar)',
     items: [
       {
         name: 'Rora Iced Ribbed Trio',
@@ -134,9 +162,136 @@ export const INITIAL_ADMIN_ORDERS: AdminOrder[] = [
   },
 ]
 
-export const INITIAL_ADMIN_RESERVATIONS: AdminReservation[] = [
+export const INITIAL_ADMIN_ORDERS_NIUGAN: AdminOrder[] = [
   {
-    id: 'RES-1048',
+    id: 'RD-NGN-101',
+    branch: 'niugan',
+    time: '08:15 AM',
+    customer: 'Engr. Kenneth P.',
+    mode: 'takeaway',
+    table: 'Curbside Drive-Up',
+    items: [
+      {
+        name: 'Salted Spanish Latte',
+        quantity: 2,
+        details: 'Iced · Oat Milk · Extra Espresso Shot (+₱35)',
+        price: 390,
+      },
+      {
+        name: 'Giant Double Choco Palm Cookie',
+        quantity: 2,
+        details: 'Heated Boxed',
+        price: 290,
+      },
+    ],
+    total: 680,
+    status: 'brewing',
+    paymentStatus: 'paid',
+    paymentMethod: 'GCash',
+  },
+  {
+    id: 'RD-NGN-102',
+    branch: 'niugan',
+    time: '08:24 AM',
+    customer: 'Janelle D. (UP Los Baños)',
+    mode: 'dine-in',
+    table: 'Study Stall #3',
+    items: [
+      {
+        name: 'Benguet Atok Washed Arabica',
+        quantity: 1,
+        details: 'Iced Chemex Drip · Black',
+        price: 220,
+      },
+      {
+        name: 'Veranda Crinkle Cake & Hot Sip',
+        quantity: 1,
+        details: 'Original Batch',
+        price: 125,
+      },
+    ],
+    total: 345,
+    status: 'queued',
+    paymentStatus: 'paid',
+    paymentMethod: 'Maya',
+  },
+  {
+    id: 'RD-NGN-103',
+    branch: 'niugan',
+    time: '08:02 AM',
+    customer: 'Dr. Raymond Cruz',
+    mode: 'dine-in',
+    table: 'Main Hall Table 2',
+    items: [
+      {
+        name: 'Honey Sea Salt Latte',
+        quantity: 1,
+        details: 'Hot Flat White · 50% Sweetness',
+        price: 240,
+      },
+    ],
+    total: 240,
+    status: 'ready',
+    paymentStatus: 'paid',
+    paymentMethod: 'Card',
+  },
+  {
+    id: 'RD-NGN-098',
+    branch: 'niugan',
+    time: '07:45 AM',
+    customer: 'Bea & Sarah (WFH Team)',
+    mode: 'dine-in',
+    table: 'Study Pod #6',
+    items: [
+      {
+        name: 'Ceremonial Biscoff Matcha',
+        quantity: 2,
+        details: 'Iced · Soy Milk · Low Ice',
+        price: 390,
+      },
+      {
+        name: 'Bay Flatbread Artisan Pizza',
+        quantity: 1,
+        details: 'Crispy Artisan Crust',
+        price: 240,
+      },
+    ],
+    total: 630,
+    status: 'completed',
+    paymentStatus: 'paid',
+    paymentMethod: 'GCash',
+  },
+  {
+    id: 'RD-NGN-095',
+    branch: 'niugan',
+    time: '07:22 AM',
+    customer: 'Cabuyao Logistics Dispatch',
+    mode: 'takeaway',
+    table: 'Express Counter',
+    items: [
+      {
+        name: 'Coconut Cloud Cold Brew',
+        quantity: 3,
+        details: 'Large Batch · 100% Sweet',
+        price: 525,
+      },
+    ],
+    total: 525,
+    status: 'completed',
+    paymentStatus: 'paid',
+    paymentMethod: 'Cash',
+  },
+]
+
+export const INITIAL_ADMIN_ORDERS: AdminOrder[] = [
+  ...INITIAL_ADMIN_ORDERS_LAKE,
+  ...INITIAL_ADMIN_ORDERS_NIUGAN,
+]
+
+export const INITIAL_ADMIN_RESERVATIONS_LAKE: AdminReservation[] = [
+  {
+    id: 'RES-LKE-1048',
+    branch: 'lake',
     guestName: 'Sophia Bernardo',
     phone: '0917 884 9210',
     guests: 4,
@@ -147,18 +302,20 @@ export const INITIAL_ADMIN_RESERVATIONS: AdminReservation[] = [
     notes: 'Sunset anniversary date. Front-row bay view requested.',
   },
   {
-    id: 'RES-1049',
+    id: 'RES-LKE-1049',
+    branch: 'lake',
     guestName: 'Joshua Garcia',
     phone: '0928 349 1928',
     guests: 2,
-    zone: 'Resort Poolside Veranda',
+    zone: 'Resort Poolside Deck',
     date: 'Today',
     time: '4:30 PM · Early Sunset Glow',
     status: 'confirmed',
     notes: 'Bringing 1 friendly golden retriever.',
   },
   {
-    id: 'RES-1050',
+    id: 'RES-LKE-1050',
+    branch: 'lake',
     guestName: 'Bea Alonzo',
     phone: '0995 102 9384',
     guests: 6,
@@ -169,7 +326,8 @@ export const INITIAL_ADMIN_RESERVATIONS: AdminReservation[] = [
     notes: 'Barkada reunion. Will order pizzas & iced lattes.',
   },
   {
-    id: 'RES-1051',
+    id: 'RES-LKE-1051',
+    branch: 'lake',
     guestName: 'Miguel Tan',
     phone: '0918 293 8471',
     guests: 2,
@@ -180,7 +338,8 @@ export const INITIAL_ADMIN_RESERVATIONS: AdminReservation[] = [
     notes: 'Working on laptops.',
   },
   {
-    id: 'RES-1052',
+    id: 'RES-LKE-1052',
+    branch: 'lake',
     guestName: 'Bianca Gonzales',
     phone: '0917 555 4912',
     guests: 3,
@@ -190,4 +349,60 @@ export const INITIAL_ADMIN_RESERVATIONS: AdminReservation[] = [
     status: 'confirmed',
     notes: 'Photography session during sunset.',
   },
+]
+
+export const INITIAL_ADMIN_RESERVATIONS_NIUGAN: AdminReservation[] = [
+  {
+    id: 'RES-NGN-201',
+    branch: 'niugan',
+    guestName: 'Prof. Gabriel Reyes',
+    phone: '0917 442 8190',
+    guests: 4,
+    zone: 'Study Stalls & Co-Work (AC)',
+    date: 'Today',
+    time: '2:00 PM · Research Sprint',
+    status: 'confirmed',
+    notes: 'Needs HDMI projector & silent study pod.',
+  },
+  {
+    id: 'RES-NGN-202',
+    branch: 'niugan',
+    guestName: 'Marjorie Chen',
+    phone: '0922 931 7744',
+    guests: 2,
+    zone: 'Main Espresso Hall',
+    date: 'Today',
+    time: '11:30 AM · Business Lunch',
+    status: 'seated',
+    notes: 'Ordered 2x Pour Overs & Flatbread.',
+  },
+  {
+    id: 'RES-NGN-203',
+    branch: 'niugan',
+    guestName: 'Dave & Chloe',
+    phone: '0918 554 2231',
+    guests: 2,
+    zone: 'Alfresco Patio',
+    date: 'Today',
+    time: '4:00 PM · Afternoon Coffee',
+    status: 'confirmed',
+    notes: 'Patio umbrella table requested.',
+  },
+  {
+    id: 'RES-NGN-204',
+    branch: 'niugan',
+    guestName: 'Ateneo Graduate Study Group',
+    phone: '0999 123 4455',
+    guests: 6,
+    zone: 'Study Stalls & Co-Work (AC)',
+    date: 'Tomorrow',
+    time: '9:00 AM · Morning Work Session',
+    status: 'confirmed',
+    notes: 'Coffee carafes & croissants pre-ordered.',
+  },
+]
+
+export const INITIAL_ADMIN_RESERVATIONS: AdminReservation[] = [
+  ...INITIAL_ADMIN_RESERVATIONS_LAKE,
+  ...INITIAL_ADMIN_RESERVATIONS_NIUGAN,
 ]
