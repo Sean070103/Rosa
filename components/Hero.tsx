@@ -10,14 +10,14 @@ interface HeroProps {
 
 export function Hero({ onOpenReserve }: HeroProps) {
   return (
-    <section className="relative overflow-hidden bg-[#F4EFE6] flex flex-col justify-between pt-6 sm:pt-8 pb-0">
+    <section className="relative overflow-hidden bg-[#FDFBF7] flex flex-col justify-between pt-6 sm:pt-8 pb-0">
       
       {/* ── Top Pill Badge ── */}
       <div className="relative z-20 flex justify-center pb-3">
-        <span className="inline-flex items-center gap-2 rounded-full bg-[#1A3B2F] text-[#F4EFE6] px-5 py-1.5 font-sans text-[11px] font-bold uppercase tracking-[0.2em] shadow-sm">
-          <span className="text-[#D25427] text-xs">✦</span>
+        <span className="inline-flex items-center gap-2 rounded-full bg-[#FFE600] text-black border-2 border-black px-5 py-1.5 font-mono text-[11px] font-black uppercase tracking-[0.2em] shadow-[2px_2px_0px_0px_#000]">
+          <span className="text-[#FF5500] text-xs">✦</span>
           <span>SPECIALTY COFFEE CO. · EST. 2024</span>
-          <span className="text-[#D25427] text-xs">✦</span>
+          <span className="text-[#FF5500] text-xs">✦</span>
         </span>
       </div>
 
@@ -28,7 +28,7 @@ export function Hero({ onOpenReserve }: HeroProps) {
         <div className="relative z-0 w-full max-w-6xl mx-auto flex flex-col justify-center">
           
           {/* Top Line: GOOD [cup in middle] COFFEE. */}
-          <div className="flex items-center justify-between w-full font-bebas text-[#1A3B2F] tracking-tight leading-[0.88]">
+          <div className="flex items-center justify-between w-full font-bebas text-black tracking-tight leading-[0.88]">
             <span
               className="text-left font-black"
               style={{ fontSize: 'clamp(3.5rem, 11.5vw, 10rem)' }}
@@ -44,7 +44,7 @@ export function Hero({ onOpenReserve }: HeroProps) {
           </div>
 
           {/* Bottom Line: GOOD [cup in middle] MOOD. */}
-          <div className="flex items-center justify-between w-full font-bebas text-[#D25427] tracking-tight leading-[0.88] -mt-2 sm:-mt-5">
+          <div className="flex items-center justify-between w-full font-bebas text-[#FF5500] tracking-tight leading-[0.88] -mt-2 sm:-mt-5">
             <span
               className="text-left font-black"
               style={{ fontSize: 'clamp(3.5rem, 11.5vw, 10rem)' }}
@@ -65,32 +65,32 @@ export function Hero({ onOpenReserve }: HeroProps) {
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 pt-6 sm:pt-10">
           <img
             src="/hero-cup-cutout.png"
-            alt="Rosa Dose Hand Holding Specialty Coffee Cup"
-            className="h-[400px] sm:h-[480px] lg:h-[540px] w-auto object-contain filter drop-shadow-[0_24px_36px_rgba(26,59,47,0.28)]"
+            alt="Rora Dose Hand Holding Specialty Coffee Cup"
+            className="h-[400px] sm:h-[480px] lg:h-[540px] w-auto object-contain filter drop-shadow-[0_24px_36px_rgba(0,0,0,0.2)]"
           />
         </div>
 
-        {/* Layer 3: Clean Pill CTA Buttons */}
+        {/* Layer 3: Clean Pill CTA Buttons (Neo-Brutalist) */}
         <div className="relative z-20 flex flex-wrap items-center justify-center gap-3.5 mt-8 sm:mt-12 pointer-events-auto">
           <a
             href="#menu"
-            className="rounded-full bg-[#D25427] text-[#FAF4E8] px-8 sm:px-10 py-3.5 font-sans font-black text-xs sm:text-sm uppercase tracking-wider shadow-lg hover:bg-[#b8431c] hover:-translate-y-0.5 active:translate-y-0.5 transition-all"
+            className="rounded-full bg-[#FF5500] hover:bg-[#E04B00] text-white border-3 border-black px-8 sm:px-10 py-3.5 font-sans font-black text-xs sm:text-sm uppercase tracking-wider shadow-[4px_4px_0px_0px_#000] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[5px_5px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all cursor-pointer"
           >
             ORDER NOW
           </a>
           <button
             onClick={onOpenReserve}
-            className="rounded-full bg-[#F4EFE6] text-[#1A3B2F] border-2 border-[#1A3B2F] px-8 sm:px-10 py-3.5 font-sans font-black text-xs sm:text-sm uppercase tracking-wider shadow-lg hover:bg-white hover:-translate-y-0.5 active:translate-y-0.5 transition-all"
+            className="rounded-full bg-white hover:bg-[#FAF8F5] text-black border-3 border-black px-8 sm:px-10 py-3.5 font-sans font-black text-xs sm:text-sm uppercase tracking-wider shadow-[4px_4px_0px_0px_#000] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[5px_5px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all cursor-pointer"
           >
-            SHOP BEST SELLERS
+            BOOK TABLE
           </button>
         </div>
 
       </div>
 
-      {/* ── Bottom Dark Green Editorial Ticker Ribbon ── */}
-      <div className="relative z-20 w-full bg-[#1A3B2F] text-[#F4EFE6] py-3 sm:py-3.5 overflow-hidden select-none border-t border-[#1A3B2F] mt-4">
-        <div className="animate-marquee flex items-center whitespace-nowrap font-bebas text-sm sm:text-base tracking-widest uppercase">
+      {/* ── Bottom Dark Editorial Ticker Ribbon ── */}
+      <div className="relative z-20 w-full bg-black text-white py-3 sm:py-3.5 overflow-hidden select-none border-t-2 border-b-2 border-black mt-4">
+        <div className="animate-marquee flex items-center whitespace-nowrap font-mono text-xs sm:text-sm font-black tracking-widest uppercase">
           {[
             'FRESHLY ROASTED',
             'SMALL BATCH',

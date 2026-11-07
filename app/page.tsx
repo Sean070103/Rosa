@@ -112,7 +112,7 @@ export default function Page() {
   }
 
   return (
-    <main id="top" className="min-h-screen bg-[#FAF4E8] text-[#341F14] bg-vintage-paper selection:bg-[#FBE48A] selection:text-[#341F14]">
+    <main id="top" className="min-h-screen bg-[#FDFBF7] text-[#172033] selection:bg-[#FFE600] selection:text-black">
       {/* Global Header */}
       <Header
         trayCount={trayCount}

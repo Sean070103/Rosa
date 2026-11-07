@@ -298,7 +298,7 @@ export function BranchAdminDashboard({ initialBranch = 'lake', fixedBranch }: Br
   // Copy Ticket
   const copyOrderSlip = (order: AdminOrder) => {
     const branchName = order.branch === 'niugan' ? 'NIUGAN DOWNTOWN BRANCH' : 'LAKEFRONT WATERFRONT BRANCH'
-    const text = `🌊 ROSA DOSE [${branchName}] · TICKET [${order.id}]
+    const text = `🌊 RORA DOSE [${branchName}] · TICKET [${order.id}]
 TIME: ${order.time} | CUSTOMER: ${order.customer}
 SERVICE: ${order.mode.toUpperCase()} - ${order.table}
 PAYMENT: ${order.paymentMethod} (${order.paymentStatus.toUpperCase()})
@@ -532,7 +532,7 @@ TOTAL: ₱${order.total}`
           <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 overflow-x-auto no-scrollbar">
             <div className="flex items-center gap-1.5 shrink-0">
               <span className="font-editorial italic font-bold text-[#FBE48A] text-[11px] sm:text-xs">
-                Rosa Dose HQ
+                RORA DOSE HQ
               </span>
               <span className="hidden md:inline text-[#FAF4E8]/50">|</span>
               <span className="hidden md:inline text-[11px] text-[#FAF4E8]/80 font-mono">
@@ -606,14 +606,14 @@ TOTAL: ₱${order.total}`
               <div className="size-9 sm:size-11 shrink-0 overflow-hidden rounded-2xl border-2 border-[#1A3B2F] bg-[#4E3629] shadow-sm">
                 <img
                   src="/cafe_pic/10001.jpg"
-                  alt="Rosa Dose Emblem"
+                  alt="RORA DOSE Emblem"
                   className="h-full w-full object-cover group-hover:scale-105 transition-transform"
                 />
               </div>
               <div className="min-w-0">
                 <div className="flex items-center gap-1.5 sm:gap-2">
                   <span className="font-editorial text-base sm:text-2xl font-bold tracking-tight text-[#1A3B2F] group-hover:text-[#D25427] transition-colors truncate">
-                    {currentBranch === 'niugan' ? 'Rosa Dose Niugan' : currentBranch === 'lake' ? 'Rosa Dose Lake' : 'Rosa Dose Multi-Store'}
+                    {currentBranch === 'niugan' ? 'RORA DOSE Niugan' : currentBranch === 'lake' ? 'RORA DOSE Lake' : 'RORA DOSE Multi-Store'}
                   </span>
                   <span className={`shrink-0 rounded-full px-2 py-0.5 text-[8px] sm:text-[9px] font-black uppercase tracking-wider ${
                     currentBranch === 'niugan' ? 'bg-[#A3E635] text-[#1A3B2F]' : currentBranch === 'lake' ? 'bg-[#1A3B2F] text-[#FBE48A]' : 'bg-[#D25427] text-white'
@@ -1093,7 +1093,7 @@ TOTAL: ₱${order.total}`
                           Branch 01 (Waterfront)
                         </span>
                         <h3 className="font-editorial text-base sm:text-xl font-bold text-[#1A3B2F]">
-                          🌊 Rosa Dose Lake
+                          🌊 RORA DOSE Lake
                         </h3>
                       </div>
                       <button
@@ -1133,7 +1133,7 @@ TOTAL: ₱${order.total}`
                           Branch 02 (Downtown)
                         </span>
                         <h3 className="font-editorial text-base sm:text-xl font-bold text-[#1A3B2F]">
-                          🌿 Rosa Dose Niugan
+                          🌿 RORA DOSE Niugan
                         </h3>
                       </div>
                       <button
@@ -1917,7 +1917,7 @@ TOTAL: ₱${order.total}`
 
             <div className="border border-neutral-200 bg-[#FAFDF8] p-3.5 rounded-xl space-y-2.5 text-[11px] leading-tight">
               <div className="text-center space-y-1">
-                <p className="font-black text-sm text-[#1A3B2F]">ROSA DOSE</p>
+                <p className="font-black text-sm text-[#1A3B2F]">RORA DOSE</p>
                 <p className="text-[10px] font-bold text-neutral-700">
                   {receiptOrder.branch === 'niugan' ? '🌿 NIUGAN DOWNTOWN BRANCH' : '🌊 LAKEFRONT ROASTERY'}
                 </p>

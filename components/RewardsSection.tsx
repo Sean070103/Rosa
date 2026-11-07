@@ -24,7 +24,7 @@ export function RewardsSection() {
             {/* Left Text & Join */}
             <div className="lg:col-span-6 space-y-6">
               <div className="inline-flex items-center gap-1.5 border-2 border-[#341F14] bg-[#FBE48A] px-3.5 py-1 text-xs font-bold text-[#341F14] shadow-70s-sm uppercase tracking-wider">
-                ✿ Section 05 // Rosa Passport Club ✿
+                ✿ Section 05 // Rora Passport Club ✿
               </div>
 
               <h2 className="font-editorial text-4xl sm:text-6xl font-black italic text-[#341F14] leading-tight tracking-tight">
@@ -94,7 +94,7 @@ export function RewardsSection() {
                 <div className="flex items-center justify-between border-b-3 border-[#341F14] pb-4 mb-4">
                   <div>
                     <p className="font-editorial text-2xl font-black italic text-[#341F14]">
-                      Rosa Passport
+                      Rora Passport
                     </p>
                     <p className="font-script text-sm text-[#C8521A] font-bold">
                       Lakeside Patron · 8-Stamp Pass

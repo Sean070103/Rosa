@@ -17,7 +17,7 @@ export function TestimonialsSection() {
             </h2>
           </div>
           <p className="font-sans text-sm text-[#341F14]/80 max-w-md leading-relaxed">
-            Stories from sunrise cyclers, remote coders, and late-night barkadas who call Rosa Dose their second home by the bay.
+            Stories from sunrise cyclers, remote coders, and late-night barkadas who call Rora Dose their second home by the bay.
           </p>
         </div>
 
@@ -81,7 +81,7 @@ export function TestimonialsSection() {
           </div>
           <div className="space-y-1.5">
             <span className="font-editorial italic font-bold text-xs bg-[#341F14] text-[#FBE48A] px-3 py-1 border border-[#341F14] inline-block shadow-70s-sm">
-              ✿ Viral Rosa Meme // #IsangTasaLang
+              ✿ Viral Rora Meme // #IsangTasaLang
             </span>
             <h3 className="font-editorial text-2xl font-black italic text-[#341F14]">
               &ldquo;Isang tasang kape lang ako kada araw...&rdquo;

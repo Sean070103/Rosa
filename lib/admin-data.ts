@@ -3,7 +3,7 @@ import { AdminOrder, AdminReservation, BranchId, BranchInfo } from './types'
 export const BRANCH_CONFIG: Record<BranchId, BranchInfo> = {
   lake: {
     id: 'lake',
-    name: 'Rosa Dose Lake (Waterfront Roastery)',
+    name: 'Rora Dose Lake (Waterfront Roastery)',
     shortName: 'LAKE BRANCH',
     tagline: 'Waterfront Sunset Roastery & Garden Resort',
     address: 'Queen Aurora Garden Resort, Waterfront Bay, Cabuyao, Laguna',
@@ -13,7 +13,7 @@ export const BRANCH_CONFIG: Record<BranchId, BranchInfo> = {
   },
   niugan: {
     id: 'niugan',
-    name: 'Rosa Dose Niugan (Downtown Espresso & Hub)',
+    name: 'Rora Dose Niugan (Downtown Espresso & Hub)',
     shortName: 'NIUGAN BRANCH',
     tagline: 'Downtown Specialty Espresso Bar & Study Lounge',
     address: 'Niugan Commercial District, Old National Hwy, Cabuyao, Laguna',

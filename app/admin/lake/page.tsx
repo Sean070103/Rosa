@@ -1,7 +1,7 @@
 'use client'
 
-import { BranchAdminDashboard } from '@/components/admin/BranchAdminDashboard'
+import { RestaurantManagementSystem } from '@/components/rms/RestaurantManagementSystem'
 
 export default function AdminLakePage() {
-  return <BranchAdminDashboard initialBranch="lake" fixedBranch="lake" />
+  return <RestaurantManagementSystem />
 }

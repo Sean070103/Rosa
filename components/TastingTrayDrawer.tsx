@@ -57,7 +57,7 @@ export function TastingTrayDrawer({
   }
 
   const copyOrderSummary = () => {
-    const text = `🌊 ROSA DOSE [${branchMeta.shortName}]
+    const text = `🌊 RORA DOSE [${branchMeta.shortName}]
 TICKET #${ticketNumber}
 📍 ${branchMeta.name}
 ${branchMeta.address}
@@ -85,24 +85,24 @@ TOTAL DUE: ₱${subtotal}
         className="absolute inset-y-0 right-0 flex max-w-full pl-0 sm:pl-6"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="w-screen max-w-md border-l-2 border-[#1A3B2F] bg-[#FAF4E8] text-[#341F14] shadow-2xl flex flex-col justify-between">
+        <div className="w-screen max-w-md border-l-3 border-black bg-white text-black shadow-[-8px_0px_0px_0px_rgba(0,0,0,0.06)] flex flex-col justify-between">
           
           {/* Header */}
-          <div className="border-b-2 border-[#1A3B2F]/20 bg-[#1A3B2F] text-[#FAF4E8] px-5 py-4 flex items-center justify-between">
+          <div className="border-b-3 border-black bg-[#FFE600] text-black px-5 py-4 flex items-center justify-between">
             <div className="flex items-center gap-2.5">
-              <span className="size-2.5 rounded-full bg-[#FBE48A] animate-pulse" />
+              <span className="size-2.5 rounded-full bg-black animate-pulse" />
               <div>
-                <span className="font-editorial text-lg font-bold text-[#FBE48A]">
+                <span className="font-mono text-base font-black uppercase tracking-wider text-black">
                   Tasting Tray
                 </span>
-                <span className="ml-2 rounded-full bg-white/20 px-2 py-0.5 text-[10px] font-bold text-white font-mono">
+                <span className="ml-2 rounded-full border border-black bg-white px-2 py-0.5 text-[10px] font-black text-black font-mono shadow-[1px_1px_0px_0px_#000]">
                   {totalItemCount} ITEMS
                 </span>
               </div>
             </div>
             <button
               onClick={onClose}
-              className="flex size-7 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+              className="flex size-7 items-center justify-center rounded-xl border-2 border-black bg-white text-black hover:bg-neutral-100 shadow-[1px_1px_0px_0px_#000] cursor-pointer"
               aria-label="Close tray"
             >
               <X className="size-4" />
@@ -130,7 +130,7 @@ TOTAL DUE: ₱${subtotal}
                 {/* Thermal Ticket Slip */}
                 <div className="rounded-2xl border-2 border-[#1A3B2F]/20 bg-white p-5 text-left font-mono text-xs shadow-md space-y-3">
                   <div className="border-b border-dashed border-[#1A3B2F]/30 pb-3 text-center">
-                    <p className="font-editorial text-xl font-bold tracking-tight text-[#1A3B2F]">ROSA DOSE</p>
+                    <p className="font-editorial text-xl font-bold tracking-tight text-[#1A3B2F]">RORA DOSE</p>
                     <p className="text-[10px] font-bold text-[#D25427] uppercase mt-0.5">
                       {branchMeta.shortName}
                     </p>

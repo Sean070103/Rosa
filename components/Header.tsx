@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import {
   Menu,
   X,
@@ -30,134 +31,120 @@ export function Header({
   const [branchDropdown, setBranchDropdown] = useState(false)
 
   return (
-    <header className="sticky top-0 z-40 bg-[#F4EFE6] border-b border-[#1A3B2F]/15 backdrop-blur-md">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-10">
+    <header className="sticky top-0 z-40 bg-white border-b-2 border-black">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-8 py-3 gap-4">
         
-        {/* Left Links & Branch Selector */}
-        <div className="hidden items-center gap-5 lg:flex">
-          <nav className="flex items-center gap-6 font-sans text-xs font-bold tracking-wider text-[#1A3B2F] uppercase">
-            <a href="#spaces" className="hover:text-[#D25427] transition-colors">
-              Our Story
-            </a>
-            <a href="#menu" className="hover:text-[#D25427] transition-colors">
-              Best Seller
-            </a>
-            <a href="#craft" className="hover:text-[#D25427] transition-colors">
-              Our Blends
-            </a>
-          </nav>
+        {/* Left: Brand Logo + Branch Selector Pill (Fixed spacing, cannot overlap) */}
+        <div className="flex items-center gap-3 sm:gap-4 shrink-0">
+          <a href="#top" className="flex flex-col select-none shrink-0 group">
+            <span className="font-serif text-2xl sm:text-3xl font-black text-[#FF5500] tracking-tight leading-none group-hover:text-black transition-colors">
+              Rora Dose
+            </span>
+            <span className="font-mono text-[8px] sm:text-[9px] font-black tracking-widest text-neutral-600 uppercase mt-0.5 whitespace-nowrap">
+              Specialty Coffee Co. · Waterfront
+            </span>
+          </a>
+
+          <div className="h-6 w-0.5 bg-black/15 hidden sm:block shrink-0" />
 
           {/* Branch Switcher Pill */}
-          <div className="relative">
+          <div className="relative shrink-0">
             <button
               onClick={() => setBranchDropdown(!branchDropdown)}
-              className="flex items-center gap-1.5 rounded-full border border-[#1A3B2F]/20 bg-white/90 px-3 py-1.5 text-[11px] font-bold text-[#1A3B2F] hover:bg-[#1A3B2F] hover:text-[#FAF4E8] transition-all shadow-xs"
+              className="flex items-center gap-1.5 rounded-full border-2 border-black bg-[#FAF8F5] px-3.5 py-1.5 text-xs font-black uppercase text-black hover:bg-white transition-all shadow-[2px_2px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none cursor-pointer whitespace-nowrap"
             >
-              <MapPin className="size-3 text-[#D25427]" />
-              <span>{selectedBranch === 'niugan' ? '🌿 Niugan' : '🌊 Lakefront'}</span>
-              <ChevronDown className="size-3 opacity-60" />
+              <MapPin className="size-3.5 text-[#FF5500]" />
+              <span>{selectedBranch === 'niugan' ? '🌿 NIUGAN' : '🌊 LAKEFRONT'}</span>
+              <ChevronDown className="size-3 text-black stroke-[3]" />
             </button>
 
             {branchDropdown && (
-              <div className="absolute left-0 mt-2 w-56 rounded-2xl border-2 border-[#1A3B2F] bg-white p-2 shadow-xl z-50 animate-in fade-in-50 zoom-in-95">
-                <p className="px-2.5 py-1 text-[9px] font-black uppercase text-[#1A3B2F]/60">Select Your Branch</p>
+              <div className="absolute left-0 mt-2 w-56 rounded-3xl border-3 border-black bg-white p-2.5 shadow-[6px_6px_0px_0px_#000] z-50 animate-in fade-in-50 zoom-in-95">
+                <p className="px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-neutral-600">Select Your Branch</p>
                 <button
                   onClick={() => {
                     if (onSelectBranch) onSelectBranch('lake')
                     setBranchDropdown(false)
                   }}
-                  className={`w-full text-left rounded-xl p-2 text-xs font-bold transition-all ${
-                    selectedBranch === 'lake' ? 'bg-[#1A3B2F] text-[#FBE48A]' : 'hover:bg-[#FAF4E8] text-[#1A3B2F]'
+                  className={`w-full text-left rounded-2xl p-2.5 text-xs font-black transition-all cursor-pointer ${
+                    selectedBranch === 'lake' ? 'bg-[#FFE600] text-black border-2 border-black shadow-[2px_2px_0px_0px_#000]' : 'hover:bg-[#FAF8F5] text-black'
                   }`}
                 >
                   <div className="flex items-center gap-1.5">
                     <span>🌊 Lakefront Branch</span>
                   </div>
-                  <p className="text-[10px] font-normal opacity-80 mt-0.5">Queen Aurora Resort · 10AM-1AM</p>
+                  <p className="text-[10px] font-medium text-neutral-600 mt-0.5">Queen Aurora Resort · 10AM-1AM</p>
                 </button>
                 <button
                   onClick={() => {
                     if (onSelectBranch) onSelectBranch('niugan')
                     setBranchDropdown(false)
                   }}
-                  className={`w-full text-left rounded-xl p-2 text-xs font-bold transition-all mt-1 ${
-                    selectedBranch === 'niugan' ? 'bg-[#1A3B2F] text-[#A3E635]' : 'hover:bg-[#FAF4E8] text-[#1A3B2F]'
+                  className={`w-full text-left rounded-2xl p-2.5 text-xs font-black transition-all mt-1.5 cursor-pointer ${
+                    selectedBranch === 'niugan' ? 'bg-[#22C55E] text-black border-2 border-black shadow-[2px_2px_0px_0px_#000]' : 'hover:bg-[#FAF8F5] text-black'
                   }`}
                 >
                   <div className="flex items-center gap-1.5">
                     <span>🌿 Niugan Branch</span>
                   </div>
-                  <p className="text-[10px] font-normal opacity-80 mt-0.5">Old National Hwy · 7AM-11PM</p>
+                  <p className="text-[10px] font-medium text-neutral-600 mt-0.5">Old National Hwy · 7AM-11PM</p>
                 </button>
               </div>
             )}
           </div>
         </div>
 
-        {/* Center Vintage Script Logo */}
-        <a href="#top" className="flex flex-col items-center group select-none">
-          <span className="font-script text-3xl sm:text-4xl font-bold text-[#1A3B2F] tracking-wide leading-none group-hover:text-[#D25427] transition-colors">
-            Rosa Dose
-          </span>
-          <span className="font-sans text-[8px] sm:text-[9px] font-extrabold tracking-[0.25em] text-[#1A3B2F]/70 uppercase mt-0.5">
-            Specialty Coffee Co. · Waterfront
-          </span>
-        </a>
+        {/* Center: Navigation Links */}
+        <nav className="hidden lg:flex items-center gap-6 font-sans text-xs font-black tracking-wider text-black uppercase">
+          <a href="#spaces" className="hover:text-[#FF5500] transition-colors whitespace-nowrap">
+            Our Story
+          </a>
+          <a href="#menu" className="hover:text-[#FF5500] transition-colors whitespace-nowrap">
+            Best Seller
+          </a>
+          <a href="#craft" className="hover:text-[#FF5500] transition-colors whitespace-nowrap">
+            Our Blends
+          </a>
+          <a href="#testimonials" className="hover:text-[#FF5500] transition-colors whitespace-nowrap">
+            Testimonials
+          </a>
+          <a href="#rewards" className="hover:text-[#FF5500] transition-colors whitespace-nowrap">
+            Passport
+          </a>
+        </nav>
 
-        {/* Right Links & Action */}
-        <div className="hidden items-center gap-6 lg:flex">
-          <nav className="flex items-center gap-7 font-sans text-xs font-bold tracking-wider text-[#1A3B2F] uppercase">
-            <a href="#testimonials" className="hover:text-[#D25427] transition-colors">
-              Testimonials
-            </a>
-            <a href="#rewards" className="hover:text-[#D25427] transition-colors">
-              Passport
-            </a>
-          </nav>
-
+        {/* Right: Actions */}
+        <div className="flex items-center gap-3 shrink-0">
           {/* Contact Us Pill Button */}
           <button
             onClick={onOpenReserve}
-            className="rounded-full bg-[#D25427] text-[#FAF4E8] px-6 py-2.5 font-sans font-bold text-xs uppercase tracking-wider hover:bg-[#b8431c] transition-colors shadow-sm"
+            className="hidden sm:flex rounded-full bg-[#FF5500] hover:bg-[#E04B00] text-white border-2 border-black px-5 py-2 font-sans font-black text-xs uppercase tracking-wider shadow-[2px_2px_0px_0px_#000] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all cursor-pointer whitespace-nowrap"
           >
-            Contact Us
+            Book Table
           </button>
 
           {/* Cart Tray Button */}
           <button
             onClick={onOpenTray}
-            className="relative flex items-center justify-center size-9 rounded-full border border-[#1A3B2F]/30 bg-white hover:bg-[#F4EFE6] text-[#1A3B2F] transition-colors"
+            className="relative flex items-center justify-center size-9 rounded-full border-2 border-black bg-white hover:bg-[#FAF8F5] text-black shadow-[2px_2px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all cursor-pointer shrink-0"
             aria-label="Open tasting tray"
           >
             <ShoppingBag className="size-4" />
             {trayCount > 0 && (
-              <span className="absolute -top-1 -right-1 flex size-4 items-center justify-center rounded-full bg-[#D25427] text-white text-[9px] font-black">
+              <span className="absolute -top-1.5 -right-1.5 flex size-4.5 items-center justify-center rounded-full bg-[#FF5500] text-white border border-black text-[9px] font-black shadow-[1px_1px_0px_0px_#000]">
                 {trayCount}
               </span>
             )}
           </button>
 
-          <AmbientSoundPlayer />
-        </div>
+          <div className="hidden sm:block shrink-0">
+            <AmbientSoundPlayer />
+          </div>
 
-        {/* Mobile Hamburger & Cart */}
-        <div className="flex items-center gap-3 lg:hidden">
-          <button
-            onClick={onOpenTray}
-            className="relative flex items-center justify-center size-9 rounded-full border border-[#1A3B2F]/30 bg-white text-[#1A3B2F]"
-            aria-label="Open tray"
-          >
-            <ShoppingBag className="size-4" />
-            {trayCount > 0 && (
-              <span className="absolute -top-1 -right-1 flex size-4 items-center justify-center rounded-full bg-[#D25427] text-white text-[9px] font-black">
-                {trayCount}
-              </span>
-            )}
-          </button>
-
+          {/* Mobile Hamburger */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="flex size-9 items-center justify-center rounded-full bg-[#1A3B2F] text-white"
+            className="flex size-9 items-center justify-center rounded-full bg-white border-2 border-black text-black shadow-[2px_2px_0px_0px_#000] lg:hidden cursor-pointer shrink-0"
             aria-label="Toggle menu"
           >
             {menuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
@@ -168,18 +155,18 @@ export function Header({
 
       {/* Mobile Dropdown */}
       {menuOpen && (
-        <div className="border-t border-[#1A3B2F]/15 bg-[#F4EFE6] px-6 py-5 lg:hidden animate-in slide-in-from-top-2">
+        <div className="border-t-2 border-black bg-white px-6 py-5 lg:hidden animate-in slide-in-from-top-2">
           {/* Mobile Branch Selector */}
-          <div className="mb-3 rounded-2xl border border-[#1A3B2F]/20 bg-white p-3 space-y-1.5">
-            <span className="text-[10px] font-black uppercase text-[#1A3B2F]/60 block">Ordering From:</span>
-            <div className="grid grid-cols-2 gap-2 text-xs font-bold">
+          <div className="mb-3 rounded-2xl border-2 border-black bg-[#FAF8F5] p-3 space-y-1.5 shadow-[2px_2px_0px_0px_#000]">
+            <span className="text-[10px] font-black uppercase text-neutral-600 block">Ordering From:</span>
+            <div className="grid grid-cols-2 gap-2 text-xs font-black">
               <button
                 onClick={() => {
                   if (onSelectBranch) onSelectBranch('lake')
                   setMenuOpen(false)
                 }}
-                className={`py-2 px-2.5 rounded-xl text-center border transition-all ${
-                  selectedBranch === 'lake' ? 'bg-[#1A3B2F] text-[#FBE48A] border-[#1A3B2F]' : 'bg-[#FAF4E8] text-[#1A3B2F] border-[#1A3B2F]/20'
+                className={`py-2 px-2.5 rounded-xl text-center border-2 border-black transition-all ${
+                  selectedBranch === 'lake' ? 'bg-[#FFE600] text-black shadow-[1px_1px_0px_0px_#000]' : 'bg-white text-black'
                 }`}
               >
                 🌊 Lakefront
@@ -189,8 +176,8 @@ export function Header({
                   if (onSelectBranch) onSelectBranch('niugan')
                   setMenuOpen(false)
                 }}
-                className={`py-2 px-2.5 rounded-xl text-center border transition-all ${
-                  selectedBranch === 'niugan' ? 'bg-[#1A3B2F] text-[#A3E635] border-[#1A3B2F]' : 'bg-[#FAF4E8] text-[#1A3B2F] border-[#1A3B2F]/20'
+                className={`py-2 px-2.5 rounded-xl text-center border-2 border-black transition-all ${
+                  selectedBranch === 'niugan' ? 'bg-[#22C55E] text-black shadow-[1px_1px_0px_0px_#000]' : 'bg-white text-black'
                 }`}
               >
                 🌿 Niugan
@@ -198,48 +185,41 @@ export function Header({
             </div>
           </div>
 
-          <nav className="flex flex-col gap-3 font-sans text-xs font-bold uppercase tracking-wider text-[#1A3B2F]">
+          <nav className="flex flex-col gap-2 font-sans text-xs font-black uppercase tracking-wider text-black">
             <a
               href="#spaces"
               onClick={() => setMenuOpen(false)}
-              className="py-1.5 hover:text-[#D25427]"
+              className="py-1.5 hover:text-[#FF5500]"
             >
               Our Story
             </a>
             <a
               href="#menu"
               onClick={() => setMenuOpen(false)}
-              className="py-1.5 hover:text-[#D25427]"
+              className="py-1.5 hover:text-[#FF5500]"
             >
               Best Seller
             </a>
             <a
               href="#craft"
               onClick={() => setMenuOpen(false)}
-              className="py-1.5 hover:text-[#D25427]"
+              className="py-1.5 hover:text-[#FF5500]"
             >
               Our Blends
             </a>
             <a
               href="#testimonials"
               onClick={() => setMenuOpen(false)}
-              className="py-1.5 hover:text-[#D25427]"
+              className="py-1.5 hover:text-[#FF5500]"
             >
               Testimonials
             </a>
             <a
               href="#rewards"
               onClick={() => setMenuOpen(false)}
-              className="py-1.5 hover:text-[#D25427]"
+              className="py-1.5 hover:text-[#FF5500]"
             >
               Passport
-            </a>
-            <a
-              href="#visit"
-              onClick={() => setMenuOpen(false)}
-              className="py-1.5 hover:text-[#D25427]"
-            >
-              Location &amp; Hours
             </a>
           </nav>
 
@@ -248,9 +228,9 @@ export function Header({
               setMenuOpen(false)
               onOpenReserve()
             }}
-            className="mt-4 w-full rounded-full bg-[#D25427] text-[#FAF4E8] py-3 text-center font-sans font-bold text-xs uppercase tracking-wider"
+            className="mt-4 w-full rounded-2xl bg-[#FF5500] text-white border-2 border-black py-3 text-center font-sans font-black text-xs uppercase tracking-wider shadow-[3px_3px_0px_0px_#000]"
           >
-            Contact Us &amp; Reserve
+            Book Table
           </button>
         </div>
       )}

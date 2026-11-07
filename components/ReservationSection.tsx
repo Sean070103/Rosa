@@ -25,8 +25,8 @@ export function ReservationSection() {
   }
 
   const copyBooking = () => {
-    const branchName = branch === 'niugan' ? 'ROSA DOSE NIUGAN (Downtown Cabuyao)' : 'ROSA DOSE LAKE (Queen Aurora Resort)'
-    const text = `🌅 ROSA DOSE RESERVATION #${bookingRef}
+    const branchName = branch === 'niugan' ? 'RORA DOSE NIUGAN (Downtown Cabuyao)' : 'RORA DOSE LAKE (Queen Aurora Resort)'
+    const text = `🌅 RORA DOSE RESERVATION #${bookingRef}
 BRANCH: ${branchName}
 NAME: ${name} (${phone})
 GUESTS: ${guests}

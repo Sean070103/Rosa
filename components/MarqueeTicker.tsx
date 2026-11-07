@@ -19,7 +19,7 @@ export function MarqueeTicker() {
           <div key={idx} className="flex items-center mx-6 gap-3">
             <span>{text}</span>
             <span className="bg-[#341F14] text-[#FBE48A] px-2 py-0.5 border border-[#341F14] font-sans font-black text-[10px] not-italic">
-              ROSA DOSE
+              RORA DOSE
             </span>
           </div>
         ))}

@@ -29,13 +29,13 @@ export function Footer() {
               <div className="size-12 overflow-hidden border-2 border-[#FBE48A] rounded-full bg-[#4E3629]">
                 <img
                   src="/cafe_pic/10001.jpg"
-                  alt="Rosa Dose Logo"
+                  alt="Rora Dose Logo"
                   className="h-full w-full object-cover"
                 />
               </div>
               <div>
                 <span className="font-editorial text-3xl font-black italic text-[#FBE48A] tracking-tight">
-                  ROSA DOSE
+                  RORA DOSE
                 </span>
                 <p className="font-sans text-[10px] font-bold uppercase tracking-widest text-[#FAF4E8]/70 mt-0.5">
                   Waterfront Roastery &amp; Bakery [PH]
@@ -76,9 +76,6 @@ export function Footer() {
                 <li><a href="#rewards" className="hover:text-[#FBE48A] transition-colors">Passport</a></li>
                 <li><a href="#visit" className="hover:text-[#FBE48A] transition-colors">Directions</a></li>
                 <li><a href="https://maps.app.goo.gl/c1mfgMUK8GrFe26d9?g_st=ipc" target="_blank" rel="noreferrer" className="hover:text-[#FBE48A] transition-colors">Google Maps</a></li>
-                <li className="pt-1 border-t border-[#FAF4E8]/10"><Link href="/admin/lake" className="text-[#FBE48A]/80 hover:text-[#FBE48A] transition-colors flex items-center gap-1"><span>🌊 adminLAKE</span></Link></li>
-                <li><Link href="/admin/niugan" className="text-[#A3E635]/80 hover:text-[#A3E635] transition-colors flex items-center gap-1"><span>🌿 adminNIUGAN</span></Link></li>
-                <li><Link href="/admin" className="text-white/60 hover:text-white transition-colors text-[10px]"><span>📊 Multi-Store Owner HQ</span></Link></li>
               </ul>
             </div>
           </div>
@@ -122,7 +119,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-sans text-xs text-[#FAF4E8]/60">
           <p className="font-editorial italic">
-            © {new Date().getFullYear()} Rosa Dose. Handcrafted in Cabuyao, Laguna.
+            © {new Date().getFullYear()} Rora Dose. Handcrafted in Cabuyao, Laguna.
           </p>
 
           <button

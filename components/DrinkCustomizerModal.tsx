@@ -82,20 +82,20 @@ export function DrinkCustomizerModal({
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-xs animate-in fade-in duration-150">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-150">
       <div 
-        className="relative w-full max-w-lg max-h-[92vh] overflow-y-auto border-4 border-black bg-[#FFFDF0] text-black shadow-[12px_12px_0_0_#000]"
+        className="relative w-full max-w-lg max-h-[92vh] overflow-y-auto rounded-3xl border-3 border-black bg-white text-black shadow-[8px_8px_0_0_#000]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Retro Window Titlebar */}
-        <div className="flex items-center justify-between border-b-4 border-black bg-[#FFE600] px-4 py-2.5 font-arcade text-xs">
+        <div className="flex items-center justify-between border-b-3 border-black bg-[#FFE600] px-5 py-3 font-mono font-black text-xs">
           <div className="flex items-center gap-2">
-            <span className="size-3 border-2 border-black bg-black inline-block" />
-            <span>CUSTOMIZER.EXE // {item.name.toUpperCase()}</span>
+            <span className="size-3 border-2 border-black bg-black inline-block rounded-full" />
+            <span className="uppercase tracking-wider">CUSTOMIZER // {item.name}</span>
           </div>
           <button
             onClick={onClose}
-            className="flex size-7 items-center justify-center border-2 border-black bg-[#FF3366] text-white hover:bg-black"
+            className="flex size-7 items-center justify-center rounded-xl border-2 border-black bg-white text-black hover:bg-neutral-100 shadow-[1px_1px_0px_0px_#000] cursor-pointer"
             aria-label="Close customizer"
           >
             <X className="size-4 stroke-[3]" />

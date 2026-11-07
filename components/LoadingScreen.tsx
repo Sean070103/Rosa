@@ -8,7 +8,7 @@ const EDITORIAL_STEPS = [
   { threshold: 48, text: 'COARSE GRINDING BENGUET SINGLE ORIGIN...' },
   { threshold: 72, text: 'FRESH BATCH POURING BY THE BAY...' },
   { threshold: 92, text: 'PULLING WARM SOURDOUGH FROM THE OVEN...' },
-  { threshold: 100, text: 'WELCOME TO ROSA DOSE ☕' },
+  { threshold: 100, text: 'WELCOME TO RORA DOSE ☕' },
 ]
 
 export function LoadingScreen() {
@@ -69,11 +69,11 @@ export function LoadingScreen() {
 
   const currentStep =
     [...EDITORIAL_STEPS].reverse().find((s) => progress >= s.threshold)?.text ||
-    'BREWING ROSA DOSE...'
+    'BREWING RORA DOSE...'
 
   return (
     <div
-      aria-label="Loading Rosa Dose 70s Retro Editorial"
+      aria-label="Loading Rora Dose 70s Retro Editorial"
       role="progressbar"
       aria-valuenow={progress}
       aria-valuemin={0}
@@ -158,7 +158,7 @@ export function LoadingScreen() {
             Independent Bakery &amp; Waterfront Slow Bar
           </p>
           <h1 className="font-editorial text-4xl sm:text-5xl font-black tracking-tight text-[#341F14] italic">
-            ROSA DOSE
+            RORA DOSE
           </h1>
           <p className="font-sans text-[11px] font-bold uppercase tracking-widest text-[#341F14]/70 mt-1">
             Cabuyao, Laguna · Queen Aurora Resort

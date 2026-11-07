@@ -114,7 +114,7 @@ export function LocationSection() {
               <div className="relative aspect-square w-full overflow-hidden border-3 border-[#341F14] rounded-t-[60px] bg-[#341F14]">
                 <img
                   src="/cafe_pic/10002.jpg"
-                  alt="Rosa Dose coffee cup with location map overlay"
+                  alt="Rora Dose coffee cup with location map overlay"
                   className="h-full w-full object-cover"
                 />
               </div>
