@@ -42,7 +42,7 @@ export function RolesAndAuditModule({ currentRole, onRoleChange }: RolesAndAudit
     { feature: 'Clock In / Clock Out & Submit Shift Swaps', admin: true, manager: true, employee: true, customer: false },
     { feature: 'Edit Recipe Costing & Ingredient Yields', admin: true, manager: true, employee: false, customer: false },
     { feature: 'Manage Stock, Issue POs & Log Spoilage', admin: true, manager: true, employee: false, customer: false },
-    { feature: 'Process Table POS Orders & Deduct Stock', admin: true, manager: true, employee: true, customer: false },
+    { feature: 'Manage Table Seating & Guest Orders', admin: true, manager: true, employee: true, customer: false },
     { feature: 'Seat Guests & Update Table Occupancy', admin: true, manager: true, employee: true, customer: false },
     { feature: 'Book Tables & Select Available Seating', admin: true, manager: true, employee: true, customer: true },
     { feature: 'View Financial & Employee Reports (CSV Export)', admin: true, manager: true, employee: false, customer: false },

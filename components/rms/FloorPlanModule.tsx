@@ -31,10 +31,9 @@ import { useToast } from './RmsToast'
 
 interface FloorPlanModuleProps {
   currentRole: UserRole
-  onOpenPos: () => void
 }
 
-export function FloorPlanModule({ currentRole, onOpenPos }: FloorPlanModuleProps) {
+export function FloorPlanModule({ currentRole }: FloorPlanModuleProps) {
   const {
     tables,
     employees,
@@ -343,18 +342,22 @@ export function FloorPlanModule({ currentRole, onOpenPos }: FloorPlanModuleProps
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         {/* Left 3 Cols: Interactive Floor Canvas */}
         <div className="lg:col-span-3">
-          <div
-            ref={canvasRef}
-            onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUp}
-            className={`relative w-full h-[640px] bg-[#FAF8F5] border-3 border-black rounded-3xl overflow-hidden shadow-[6px_6px_0px_0px_#000] transition-all ${
-              isEditMode ? 'cursor-crosshair ring-4 ring-[#FF5500]/30' : ''
-            }`}
-            style={{
-              backgroundImage: 'radial-gradient(#000000 1.5px, transparent 1.5px)',
-              backgroundSize: '24px 24px',
-            }}
-          >
+          <p className="sm:hidden text-[10px] font-mono font-bold text-neutral-500 uppercase tracking-wider mb-2 flex items-center gap-1">
+            <span>← Swipe horizontally to explore full restaurant floor plan →</span>
+          </p>
+          <div className="overflow-x-auto rounded-3xl border-3 border-black shadow-[4px_4px_0px_0px_#000] sm:shadow-[6px_6px_0px_0px_#000] bg-[#FAF8F5]">
+            <div
+              ref={canvasRef}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUp}
+              className={`relative min-w-[680px] sm:min-w-full w-full h-[640px] bg-[#FAF8F5] overflow-hidden transition-all ${
+                isEditMode ? 'cursor-crosshair ring-4 ring-[#FF5500]/30' : ''
+              }`}
+              style={{
+                backgroundImage: 'radial-gradient(#000000 1.5px, transparent 1.5px)',
+                backgroundSize: '24px 24px',
+              }}
+            >
             {/* Visual Area Zones Watermarks */}
             <div className="absolute top-4 left-6 text-xs font-black tracking-wider text-black/30 uppercase pointer-events-none">
               Waterfront Veranda (Lakeside Deck)
@@ -445,6 +448,7 @@ export function FloorPlanModule({ currentRole, onOpenPos }: FloorPlanModuleProps
                 </div>
               )
             })}
+            </div>
           </div>
         </div>
 

@@ -27,10 +27,9 @@ import { useToast } from './RmsToast'
 
 interface InventoryModuleProps {
   currentRole: UserRole
-  onOpenPos: () => void
 }
 
-export function InventoryModule({ currentRole, onOpenPos }: InventoryModuleProps) {
+export function InventoryModule({ currentRole }: InventoryModuleProps) {
   const {
     inventory,
     stockMovements,
@@ -211,22 +210,13 @@ export function InventoryModule({ currentRole, onOpenPos }: InventoryModuleProps
                 </span>
               </div>
               <p className="text-xs font-medium text-neutral-600 mt-0.5">
-                Ingredients, beverages, packaging, stock movements, purchase orders, wastage, and automatic POS deductions.
+                Ingredients, beverages, packaging, stock movements, purchase orders, and wastage tracking.
               </p>
             </div>
           </div>
         </div>
 
         <div className="flex flex-wrap items-center gap-2.5">
-          <button
-            onClick={onOpenPos}
-            className="flex items-center gap-1.5 px-4 py-2 rounded-2xl text-xs font-black uppercase tracking-wider bg-[#22C55E] hover:bg-[#16A34A] text-black border-2 border-black transition-all cursor-pointer shadow-[2px_2px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
-            title="Complete an order to test automatic stock deduction"
-          >
-            <ShoppingBag className="w-4 h-4 text-black" />
-            <span>Test POS Deduction</span>
-          </button>
-
           {isManagerOrAdmin && (
             <>
               <button
@@ -337,7 +327,7 @@ export function InventoryModule({ currentRole, onOpenPos }: InventoryModuleProps
               : 'text-[#64748B] hover:text-[#172033] hover:bg-white/60'
           }`}
         >
-          Stock Movement History & Deductions ({stockMovements.length})
+          Stock Movement History ({stockMovements.length})
         </button>
         <button
           onClick={() => setActiveTab('purchase-orders')}
@@ -509,8 +499,8 @@ export function InventoryModule({ currentRole, onOpenPos }: InventoryModuleProps
         <div className="bg-white border border-[#E2E8F0] rounded-2xl p-6 shadow-sm space-y-4">
           <div className="flex items-center justify-between pb-3 border-b border-[#E2E8F0]">
             <div>
-              <h3 className="font-bold text-base text-[#172033]">Stock Movement Audit Trail & POS Deductions</h3>
-              <p className="text-xs text-[#64748B]">Automated audit trail every time ingredients are received, deducted, or wasted.</p>
+              <h3 className="font-bold text-base text-[#172033]">Stock Movement Audit Trail</h3>
+              <p className="text-xs text-[#64748B]">Audit trail every time ingredients are received, adjusted, or logged as spoilage.</p>
             </div>
           </div>
 
@@ -849,7 +839,7 @@ export function InventoryModule({ currentRole, onOpenPos }: InventoryModuleProps
                   type="submit"
                   className="px-5 py-2 rounded-xl bg-red-600 hover:bg-red-700 text-white font-semibold cursor-pointer shadow-sm"
                 >
-                  Record Loss & Deduct
+                  Record Spoilage Log
                 </button>
               </div>
             </form>

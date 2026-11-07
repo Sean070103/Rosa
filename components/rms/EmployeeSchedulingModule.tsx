@@ -285,10 +285,10 @@ export function EmployeeSchedulingModule({ currentRole }: EmployeeSchedulingModu
 
       {/* Navigation Sub-Tabs */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b-2 border-black/10 pb-3 gap-3">
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar max-w-full pb-1">
           <button
             onClick={() => setActiveTab('calendar')}
-            className={`px-3.5 py-1.5 text-xs font-black uppercase tracking-wider rounded-2xl border-2 border-black transition-all cursor-pointer ${
+            className={`px-3.5 py-1.5 text-xs font-black uppercase tracking-wider rounded-2xl border-2 border-black transition-all cursor-pointer shrink-0 ${
               activeTab === 'calendar' ? 'bg-[#FF5500] text-white shadow-[2px_2px_0px_0px_#000]' : 'bg-white text-neutral-800 hover:bg-[#FAF8F5]'
             }`}
           >
@@ -296,7 +296,7 @@ export function EmployeeSchedulingModule({ currentRole }: EmployeeSchedulingModu
           </button>
           <button
             onClick={() => setActiveTab('my-shifts')}
-            className={`px-3.5 py-1.5 text-xs font-black uppercase tracking-wider rounded-2xl border-2 border-black transition-all cursor-pointer ${
+            className={`px-3.5 py-1.5 text-xs font-black uppercase tracking-wider rounded-2xl border-2 border-black transition-all cursor-pointer shrink-0 ${
               activeTab === 'my-shifts' ? 'bg-[#FFE600] text-black shadow-[2px_2px_0px_0px_#000]' : 'bg-white text-neutral-800 hover:bg-[#FAF8F5]'
             }`}
           >
@@ -304,7 +304,7 @@ export function EmployeeSchedulingModule({ currentRole }: EmployeeSchedulingModu
           </button>
           <button
             onClick={() => setActiveTab('requests')}
-            className={`px-3.5 py-1.5 text-xs font-black uppercase tracking-wider rounded-2xl border-2 border-black transition-all flex items-center gap-1.5 cursor-pointer ${
+            className={`px-3.5 py-1.5 text-xs font-black uppercase tracking-wider rounded-2xl border-2 border-black transition-all flex items-center gap-1.5 cursor-pointer shrink-0 ${
               activeTab === 'requests' ? 'bg-[#22C55E] text-black shadow-[2px_2px_0px_0px_#000]' : 'bg-white text-neutral-800 hover:bg-[#FAF8F5]'
             }`}
           >
@@ -317,7 +317,7 @@ export function EmployeeSchedulingModule({ currentRole }: EmployeeSchedulingModu
           </button>
           <button
             onClick={() => setActiveTab('staff-hours')}
-            className={`px-3.5 py-1.5 text-xs font-black uppercase tracking-wider rounded-2xl border-2 border-black transition-all cursor-pointer ${
+            className={`px-3.5 py-1.5 text-xs font-black uppercase tracking-wider rounded-2xl border-2 border-black transition-all cursor-pointer shrink-0 ${
               activeTab === 'staff-hours' ? 'bg-[#60A5FA] text-black shadow-[2px_2px_0px_0px_#000]' : 'bg-white text-neutral-800 hover:bg-[#FAF8F5]'
             }`}
           >
@@ -373,63 +373,44 @@ export function EmployeeSchedulingModule({ currentRole }: EmployeeSchedulingModu
       {/* TAB 1: INTERACTIVE CALENDAR (Neo-Brutalist + Rounded-3xl) */}
       {activeTab === 'calendar' && (
         <div className="space-y-4">
-          <div className="bg-white border-3 border-black rounded-3xl overflow-hidden shadow-[6px_6px_0px_0px_#000]">
-            {/* Week Header */}
+          {calendarView === 'weekly' && (
+            <p className="sm:hidden text-[10px] font-mono font-bold text-neutral-500 uppercase tracking-wider flex items-center gap-1">
+              <span>← Swipe horizontally to view full weekly roster →</span>
+            </p>
+          )}
+          <div className="bg-white border-3 border-black rounded-3xl overflow-hidden shadow-[4px_4px_0px_0px_#000] sm:shadow-[6px_6px_0px_0px_#000]">
+            {/* Week Header & Columns */}
             {calendarView === 'weekly' && (
-              <div className="grid grid-cols-7 border-b-2 border-black text-center bg-[#FAF8F5]">
-                {weekDays.map((dayStr) => {
-                  const d = new Date(dayStr)
-                  const dayName = d.toLocaleDateString('en-US', { weekday: 'short' })
-                  const dayNum = d.getDate()
-                  const isToday = dayStr === TODAY
+              <div className="overflow-x-auto">
+                <div className="min-w-[700px] sm:min-w-full">
+                  <div className="grid grid-cols-7 border-b-2 border-black text-center bg-[#FAF8F5]">
+                    {weekDays.map((dayStr) => {
+                      const d = new Date(dayStr)
+                      const dayName = d.toLocaleDateString('en-US', { weekday: 'short' })
+                      const dayNum = d.getDate()
+                      const isToday = dayStr === TODAY
 
-                  return (
-                    <div
-                      key={dayStr}
-                      className={`p-3 border-r-2 border-black last:border-r-0 ${
-                        isToday ? 'bg-[#FFE600]/40' : ''
-                      }`}
-                    >
-                      <p className="text-[11px] font-black uppercase tracking-wider text-black">{dayName}</p>
-                      <p className={`text-base font-black font-mono mt-0.5 ${isToday ? 'text-[#FF5500]' : 'text-black'}`}>
-                        {dayNum}
-                      </p>
-                      {isToday && (
-                        <span className="text-[9px] font-black text-black bg-[#FFE600] px-1.5 py-0.2 rounded-full border border-black uppercase tracking-wider inline-block mt-0.5">Today</span>
-                      )}
-                    </div>
-                  )
-                })}
-              </div>
-            )}
+                      return (
+                        <div
+                          key={dayStr}
+                          className={`p-3 border-r-2 border-black last:border-r-0 ${
+                            isToday ? 'bg-[#FFE600]/40' : ''
+                          }`}
+                        >
+                          <p className="text-[11px] font-black uppercase tracking-wider text-black">{dayName}</p>
+                          <p className={`text-base font-black font-mono mt-0.5 ${isToday ? 'text-[#FF5500]' : 'text-black'}`}>
+                            {dayNum}
+                          </p>
+                          {isToday && (
+                            <span className="text-[9px] font-black text-black bg-[#FFE600] px-1.5 py-0.2 rounded-full border border-black uppercase tracking-wider inline-block mt-0.5">Today</span>
+                          )}
+                        </div>
+                      )
+                    })}
+                  </div>
 
-            {/* Daily View Day Title */}
-            {calendarView === 'daily' && (
-              <div className="p-4 bg-[#FAF8F5] border-b-2 border-black flex items-center justify-between">
-                <div>
-                  <h3 className="font-black text-base text-black">
-                    Daily Schedule for {new Date(selectedDate).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}
-                  </h3>
-                  <p className="text-xs font-medium text-neutral-600">All shifts across Morning, Afternoon, Evening, and Closing shifts</p>
-                </div>
-                {isManagerOrAdmin && (
-                  <button
-                    onClick={() => {
-                      setShiftForm((prev) => ({ ...prev, date: selectedDate }))
-                      setIsNewShiftModalOpen(true)
-                    }}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#22C55E] text-black text-xs font-black uppercase border border-black shadow-[1px_1px_0px_0px_#000] cursor-pointer"
-                  >
-                    <Plus className="w-3.5 h-3.5" />
-                    <span>Add Shift to This Day</span>
-                  </button>
-                )}
-              </div>
-            )}
-
-            {/* Weekly Columns (Clean Light Grid) */}
-            {calendarView === 'weekly' && (
-              <div className="grid grid-cols-7 min-h-[500px] divide-x-2 divide-black">
+                  {/* Weekly Columns (Clean Light Grid) */}
+                  <div className="grid grid-cols-7 min-h-[500px] divide-x-2 divide-black">
                 {weekDays.map((dayStr) => {
                   const dayShifts = shifts.filter((s) => s.date === dayStr)
 
@@ -536,6 +517,32 @@ export function EmployeeSchedulingModule({ currentRole }: EmployeeSchedulingModu
                     </div>
                   )
                 })}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Daily View Day Title */}
+            {calendarView === 'daily' && (
+              <div className="p-4 bg-[#FAF8F5] border-b-2 border-black flex items-center justify-between">
+                <div>
+                  <h3 className="font-black text-base text-black">
+                    Daily Schedule for {new Date(selectedDate).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}
+                  </h3>
+                  <p className="text-xs font-medium text-neutral-600">All shifts across Morning, Afternoon, Evening, and Closing shifts</p>
+                </div>
+                {isManagerOrAdmin && (
+                  <button
+                    onClick={() => {
+                      setShiftForm((prev) => ({ ...prev, date: selectedDate }))
+                      setIsNewShiftModalOpen(true)
+                    }}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#22C55E] text-black text-xs font-black uppercase border border-black shadow-[1px_1px_0px_0px_#000] cursor-pointer"
+                  >
+                    <Plus className="w-3.5 h-3.5" />
+                    <span>Add Shift to This Day</span>
+                  </button>
+                )}
               </div>
             )}
 

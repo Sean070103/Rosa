@@ -26,14 +26,12 @@ import { TODAY, UserRole } from '@/lib/db/restaurant-db'
 interface DashboardModuleProps {
   onNavigate: (tabId: string) => void
   currentRole: UserRole
-  onOpenPos: () => void
   onOpenCustomerBooking: () => void
 }
 
 export function DashboardModule({
   onNavigate,
   currentRole,
-  onOpenPos,
   onOpenCustomerBooking,
 }: DashboardModuleProps) {
   const {
@@ -84,54 +82,54 @@ export function DashboardModule({
       : 34
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       {/* Top Banner / Welcome with Neo-Brutalist Frame & Rounded-3xl */}
-      <div className="bg-white rounded-3xl p-6 lg:p-8 border-3 border-black shadow-[6px_6px_0px_0px_#000] relative overflow-hidden">
-        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 relative z-10">
+      <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border-3 border-black shadow-[4px_4px_0px_0px_#000] sm:shadow-[6px_6px_0px_0px_#000] relative overflow-hidden">
+        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 sm:gap-6 relative z-10">
           <div>
-            <div className="flex items-center gap-2 mb-2">
+            <div className="flex items-center gap-2 mb-2 flex-wrap">
               <span className="text-[10px] uppercase tracking-wider font-mono font-black text-black bg-[#FFE600] px-2.5 py-0.5 rounded-full border border-black shadow-[1px_1px_0px_0px_#000]">
                 Unified Operations Control
               </span>
               <span className="w-2.5 h-2.5 rounded-full bg-[#22C55E] border border-black animate-pulse" />
               <span className="text-xs text-neutral-600 font-bold uppercase tracking-wider">Live Sync Active</span>
             </div>
-            <h1 className="text-2xl lg:text-3xl font-black text-black tracking-tight">
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-black text-black tracking-tight">
               Rosa Lake Bistro & Veranda Executive
             </h1>
-            <p className="text-sm font-medium text-neutral-600 mt-1.5 max-w-2xl leading-relaxed">
-              All 5 restaurant modules synchronized in real-time. POS transactions deduct inventory, update table occupancy, and track staff duty schedules.
+            <p className="text-xs sm:text-sm font-medium text-neutral-600 mt-1.5 max-w-2xl leading-relaxed">
+              Comprehensive restaurant operations control. Manage staff schedules, recipe costing, stock inventory, dining reservations, and floor seating in real-time.
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2.5">
-            <button
-              onClick={onOpenPos}
-              className="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-[#FF5500] hover:bg-[#E04B00] text-white font-black uppercase tracking-wider text-xs border-2 border-black shadow-[3px_3px_0px_0px_#000] transition-all cursor-pointer hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
-            >
-              <ShoppingBag className="w-4 h-4" />
-              <span>Launch Live POS</span>
-            </button>
+          <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 w-full sm:w-auto">
             <button
               onClick={() => onNavigate('floor')}
-              className="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-white hover:bg-[#FAF8F5] text-black border-2 border-black font-black uppercase tracking-wider text-xs shadow-[3px_3px_0px_0px_#000] transition-all cursor-pointer hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
+              className="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl bg-white hover:bg-[#FAF8F5] text-black border-2 border-black font-black uppercase tracking-wider text-xs shadow-[2px_2px_0px_0px_#000] sm:shadow-[3px_3px_0px_0px_#000] transition-all cursor-pointer hover:translate-x-[-1px] hover:translate-y-[-1px] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
             >
               <UtensilsCrossed className="w-4 h-4 text-[#FF5500]" />
-              <span>Visual Floor Plan</span>
+              <span>Floor Plan</span>
             </button>
             <button
               onClick={() => onNavigate('scheduling')}
-              className="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-[#FFE600] hover:bg-[#FACC15] text-black border-2 border-black font-black uppercase tracking-wider text-xs shadow-[3px_3px_0px_0px_#000] transition-all cursor-pointer hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
+              className="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl bg-[#FFE600] hover:bg-[#FACC15] text-black border-2 border-black font-black uppercase tracking-wider text-xs shadow-[2px_2px_0px_0px_#000] sm:shadow-[3px_3px_0px_0px_#000] transition-all cursor-pointer hover:translate-x-[-1px] hover:translate-y-[-1px] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
             >
               <Calendar className="w-4 h-4 text-black" />
               <span>Staff Schedule</span>
+            </button>
+            <button
+              onClick={() => onNavigate('inventory')}
+              className="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl bg-[#22C55E] hover:bg-[#16A34A] text-black border-2 border-black font-black uppercase tracking-wider text-xs shadow-[2px_2px_0px_0px_#000] sm:shadow-[3px_3px_0px_0px_#000] transition-all cursor-pointer hover:translate-x-[-1px] hover:translate-y-[-1px] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
+            >
+              <Package className="w-4 h-4 text-black" />
+              <span>Inventory</span>
             </button>
           </div>
         </div>
       </div>
 
       {/* 12 Executive KPI Metric Cards (Neo-Brutalist + Rounded-2xl + Hard Offset Shadows) */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3.5">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-2.5 sm:gap-3.5">
         {/* 1. Today's Reservations */}
         <div
           onClick={() => onNavigate('reservations')}
@@ -273,7 +271,7 @@ export function DashboardModule({
 
         {/* 9. Daily Sales */}
         <div
-          onClick={() => onNavigate('pos')}
+          onClick={() => onNavigate('reports')}
           className="bg-white hover:bg-[#F0FDF4] border-2 border-black rounded-2xl p-4 transition-all duration-150 cursor-pointer group shadow-[3px_3px_0px_0px_#000] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[5px_5px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
         >
           <div className="flex items-center justify-between text-neutral-600 mb-2">

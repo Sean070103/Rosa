@@ -27,7 +27,6 @@ interface RmsNavbarProps {
   onRoleChange: (role: UserRole) => void
   currentBranch: string
   onBranchChange: (branch: string) => void
-  onOpenPos: () => void
   onOpenCustomerBooking: () => void
   onNavigateTab: (tabId: string) => void
 }
@@ -37,7 +36,6 @@ export function RmsNavbar({
   onRoleChange,
   currentBranch,
   onBranchChange,
-  onOpenPos,
   onOpenCustomerBooking,
   onNavigateTab,
 }: RmsNavbarProps) {
@@ -58,18 +56,18 @@ export function RmsNavbar({
   const activeRoleConfig = roles.find((r) => r.role === currentRole) || roles[0]
 
   return (
-    <header className="sticky top-0 z-40 bg-white border-b-2 border-black text-[#172033] px-4 lg:px-6 py-2.5 transition-all">
-      <div className="flex items-center justify-between gap-4">
+    <header className="sticky top-0 z-40 bg-white border-b-2 border-black text-[#172033] px-3 sm:px-6 py-2 sm:py-2.5 transition-all">
+      <div className="flex items-center justify-between gap-2 sm:gap-4">
         {/* Brand & Location Switcher */}
-        <div className="flex items-center gap-3">
-          <div className="flex items-center gap-2.5">
-            <div className="w-10 h-10 rounded-2xl bg-[#FF5500] border-2 border-black flex items-center justify-center text-white shadow-[2px_2px_0px_0px_#000]">
-              <UtensilsCrossed className="w-5 h-5 text-white" />
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-[#FF5500] border-2 border-black flex items-center justify-center text-white shadow-[2px_2px_0px_0px_#000]">
+              <UtensilsCrossed className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
             </div>
             <div>
-              <div className="flex items-center gap-2">
-                <span className="font-serif text-lg font-black tracking-tight text-black">RORA</span>
-                <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full font-mono font-black bg-[#FFE600] text-black border border-black shadow-[1px_1px_0px_0px_#000]">
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <span className="font-serif text-base sm:text-lg font-black tracking-tight text-black">RORA</span>
+                <span className="text-[9px] sm:text-[10px] uppercase tracking-wider px-1.5 sm:px-2 py-0.5 rounded-full font-mono font-black bg-[#FFE600] text-black border border-black shadow-[1px_1px_0px_0px_#000]">
                   RMS PRO
                 </span>
               </div>
@@ -80,58 +78,48 @@ export function RmsNavbar({
           <div className="h-6 w-0.5 bg-black/15 hidden md:block" />
 
           {/* Location Selector (Neo-Brutalist) */}
-          <div className="hidden md:flex items-center gap-2 bg-[#FAF8F5] hover:bg-white px-3.5 py-1.5 rounded-2xl border-2 border-black text-xs transition-all shadow-[2px_2px_0px_0px_#000]">
-            <MapPin className="w-3.5 h-3.5 text-[#FF5500]" />
+          <div className="flex items-center gap-1.5 bg-[#FAF8F5] hover:bg-white px-2 sm:px-3.5 py-1 sm:py-1.5 rounded-xl sm:rounded-2xl border-2 border-black text-xs transition-all shadow-[2px_2px_0px_0px_#000] shrink-0">
+            <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#FF5500] shrink-0" />
             <select
               value={currentBranch}
               onChange={(e) => onBranchChange(e.target.value)}
-              className="bg-transparent text-xs font-bold text-black focus:outline-none cursor-pointer"
+              className="bg-transparent text-[11px] sm:text-xs font-bold text-black focus:outline-none cursor-pointer max-w-[110px] sm:max-w-none truncate"
             >
-              <option value="lake">Waterfront Lake Bistro (Bay Veranda)</option>
-              <option value="niugan">Downtown Niugan Grand Hall</option>
+              <option value="lake">Waterfront Lake</option>
+              <option value="niugan">Niugan Hall</option>
             </select>
           </div>
         </div>
 
-        {/* Right Controls: Quick POS, Book Table, Role Switcher, Notifications, Demo Reset */}
-        <div className="flex items-center gap-2 sm:gap-2.5">
-          {/* Active POS Indicator / Launcher */}
-          <button
-            onClick={onOpenPos}
-            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-2xl text-xs font-black uppercase tracking-wider bg-[#22C55E] hover:bg-[#16A34A] text-black border-2 border-black transition-all cursor-pointer shadow-[3px_3px_0px_0px_#000] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
-            title="Open Live Touchscreen POS Terminal"
-          >
-            <span className="w-2.5 h-2.5 rounded-full bg-white border border-black animate-pulse" />
-            <ShoppingBag className="w-3.5 h-3.5 text-black" />
-            <span className="hidden sm:inline">Active POS</span>
-          </button>
-
+        {/* Right Controls: Book Table, Role Switcher, Notifications, Demo Reset */}
+        <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
           {/* Book Table Button */}
           <button
             onClick={onOpenCustomerBooking}
-            className="flex items-center gap-1.5 px-4 py-1.5 rounded-2xl text-xs font-black uppercase tracking-wider bg-[#FFE600] hover:bg-[#FACC15] text-black border-2 border-black shadow-[3px_3px_0px_0px_#000] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all cursor-pointer"
+            className="flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-4 py-1.5 rounded-xl sm:rounded-2xl text-[11px] sm:text-xs font-black uppercase tracking-wider bg-[#FFE600] hover:bg-[#FACC15] text-black border-2 border-black shadow-[2px_2px_0px_0px_#000] sm:shadow-[3px_3px_0px_0px_#000] hover:translate-x-[-1px] hover:translate-y-[-1px] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all cursor-pointer"
             title="Launch Customer Table Booking Flow"
           >
             <Calendar className="w-3.5 h-3.5" />
             <span className="hidden sm:inline">Book Table</span>
+            <span className="sm:hidden text-[10px]">Book</span>
           </button>
 
           {/* Role Switcher Dropdown */}
           <div className="relative">
             <button
               onClick={() => setShowRoleMenu(!showRoleMenu)}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-2xl bg-white hover:bg-[#FAF8F5] border-2 border-black text-xs font-bold transition-all cursor-pointer shadow-[3px_3px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
+              className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 rounded-xl sm:rounded-2xl bg-white hover:bg-[#FAF8F5] border-2 border-black text-xs font-bold transition-all cursor-pointer shadow-[2px_2px_0px_0px_#000] sm:shadow-[3px_3px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
             >
               <Shield className="w-3.5 h-3.5 text-[#FF5500]" />
-              <span className="font-black text-black hidden sm:inline">{activeRoleConfig.label}</span>
-              <span className={`text-[10px] px-2 py-0.5 rounded-full font-mono font-black border border-black shadow-[1px_1px_0px_0px_#000] ${activeRoleConfig.badge}`}>
+              <span className="font-black text-black hidden md:inline">{activeRoleConfig.label}</span>
+              <span className={`text-[9px] sm:text-[10px] px-1.5 sm:px-2 py-0.5 rounded-full font-mono font-black border border-black shadow-[1px_1px_0px_0px_#000] ${activeRoleConfig.badge}`}>
                 {currentRole.toUpperCase()}
               </span>
               <ChevronDown className="w-3 h-3 text-black" />
             </button>
 
             {showRoleMenu && (
-              <div className="absolute right-0 mt-2 w-72 bg-white border-3 border-black rounded-3xl shadow-[6px_6px_0px_0px_#000] p-3 z-50 text-xs animate-in fade-in-50 zoom-in-95">
+              <div className="absolute right-0 mt-2 w-72 max-w-[calc(100vw-24px)] bg-white border-3 border-black rounded-3xl shadow-[6px_6px_0px_0px_#000] p-3 z-50 text-xs animate-in fade-in-50 zoom-in-95">
                 <div className="px-3 py-2 border-b-2 border-black/10 mb-2">
                   <p className="text-[10px] font-black uppercase tracking-wider text-black">Select Active Role</p>
                   <p className="text-[11px] text-neutral-600">Switch role perspective & permissions</p>
@@ -173,7 +161,7 @@ export function RmsNavbar({
           <div className="relative">
             <button
               onClick={() => setShowNotifications(!showNotifications)}
-              className="relative p-2 rounded-2xl bg-white hover:bg-[#FAF8F5] border-2 border-black text-black transition-all cursor-pointer shadow-[2px_2px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
+              className="relative p-2 rounded-xl sm:rounded-2xl bg-white hover:bg-[#FAF8F5] border-2 border-black text-black transition-all cursor-pointer shadow-[2px_2px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
               title="System Alerts & Notifications"
             >
               <Bell className="w-4 h-4" />
@@ -185,7 +173,7 @@ export function RmsNavbar({
             </button>
 
             {showNotifications && (
-              <div className="absolute right-0 mt-2 w-80 sm:w-96 bg-white border-3 border-black rounded-3xl shadow-[6px_6px_0px_0px_#000] p-4 z-50 text-xs animate-in fade-in-50 zoom-in-95">
+              <div className="absolute right-0 mt-2 w-72 sm:w-96 max-w-[calc(100vw-24px)] bg-white border-3 border-black rounded-3xl shadow-[6px_6px_0px_0px_#000] p-4 z-50 text-xs animate-in fade-in-50 zoom-in-95">
                 <div className="flex items-center justify-between pb-2.5 border-b-2 border-black/10 mb-2.5">
                   <div className="flex items-center gap-2">
                     <span className="font-black text-sm text-black">System Notifications</span>
