@@ -283,12 +283,13 @@ export function EmployeeSchedulingModule({ currentRole }: EmployeeSchedulingModu
         </div>
       </div>
 
-      {/* Navigation Sub-Tabs */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b-2 border-black/10 pb-3 gap-3">
+      {/* Navigation Sub-Tabs & View Selectors */}
+      <div className="flex flex-col md:flex-row md:items-center justify-between border-b-2 border-black/10 pb-3 gap-3">
+        {/* Left Sub-Tabs (Smooth Horizontal Scroll on Mobile) */}
         <div className="flex items-center gap-2 overflow-x-auto no-scrollbar max-w-full pb-1">
           <button
             onClick={() => setActiveTab('calendar')}
-            className={`px-3.5 py-1.5 text-xs font-black uppercase tracking-wider rounded-2xl border-2 border-black transition-all cursor-pointer shrink-0 ${
+            className={`px-3 py-1.5 text-xs font-black uppercase tracking-wider rounded-xl sm:rounded-2xl border-2 border-black transition-all cursor-pointer shrink-0 ${
               activeTab === 'calendar' ? 'bg-[#FF5500] text-white shadow-[2px_2px_0px_0px_#000]' : 'bg-white text-neutral-800 hover:bg-[#FAF8F5]'
             }`}
           >
@@ -296,7 +297,7 @@ export function EmployeeSchedulingModule({ currentRole }: EmployeeSchedulingModu
           </button>
           <button
             onClick={() => setActiveTab('my-shifts')}
-            className={`px-3.5 py-1.5 text-xs font-black uppercase tracking-wider rounded-2xl border-2 border-black transition-all cursor-pointer shrink-0 ${
+            className={`px-3 py-1.5 text-xs font-black uppercase tracking-wider rounded-xl sm:rounded-2xl border-2 border-black transition-all cursor-pointer shrink-0 ${
               activeTab === 'my-shifts' ? 'bg-[#FFE600] text-black shadow-[2px_2px_0px_0px_#000]' : 'bg-white text-neutral-800 hover:bg-[#FAF8F5]'
             }`}
           >
@@ -304,7 +305,7 @@ export function EmployeeSchedulingModule({ currentRole }: EmployeeSchedulingModu
           </button>
           <button
             onClick={() => setActiveTab('requests')}
-            className={`px-3.5 py-1.5 text-xs font-black uppercase tracking-wider rounded-2xl border-2 border-black transition-all flex items-center gap-1.5 cursor-pointer shrink-0 ${
+            className={`px-3 py-1.5 text-xs font-black uppercase tracking-wider rounded-xl sm:rounded-2xl border-2 border-black transition-all flex items-center gap-1.5 cursor-pointer shrink-0 ${
               activeTab === 'requests' ? 'bg-[#22C55E] text-black shadow-[2px_2px_0px_0px_#000]' : 'bg-white text-neutral-800 hover:bg-[#FAF8F5]'
             }`}
           >
@@ -317,7 +318,7 @@ export function EmployeeSchedulingModule({ currentRole }: EmployeeSchedulingModu
           </button>
           <button
             onClick={() => setActiveTab('staff-hours')}
-            className={`px-3.5 py-1.5 text-xs font-black uppercase tracking-wider rounded-2xl border-2 border-black transition-all cursor-pointer shrink-0 ${
+            className={`px-3 py-1.5 text-xs font-black uppercase tracking-wider rounded-xl sm:rounded-2xl border-2 border-black transition-all cursor-pointer shrink-0 ${
               activeTab === 'staff-hours' ? 'bg-[#60A5FA] text-black shadow-[2px_2px_0px_0px_#000]' : 'bg-white text-neutral-800 hover:bg-[#FAF8F5]'
             }`}
           >
@@ -325,15 +326,15 @@ export function EmployeeSchedulingModule({ currentRole }: EmployeeSchedulingModu
           </button>
         </div>
 
-        {/* Calendar View Selectors (when on calendar tab) */}
+        {/* Right View Selectors & Date Navigator */}
         {activeTab === 'calendar' && (
-          <div className="flex items-center gap-2">
-            <div className="flex items-center bg-[#FAF8F5] border-2 border-black p-0.5 rounded-2xl text-xs shadow-[2px_2px_0px_0px_#000]">
+          <div className="flex flex-wrap items-center justify-between sm:justify-end gap-2 w-full md:w-auto">
+            <div className="flex items-center bg-[#FAF8F5] border-2 border-black p-0.5 rounded-xl sm:rounded-2xl text-xs shadow-[2px_2px_0px_0px_#000]">
               {(['daily', 'weekly', 'monthly'] as const).map((view) => (
                 <button
                   key={view}
                   onClick={() => setCalendarView(view)}
-                  className={`px-2.5 py-1 rounded-xl text-[11px] font-black uppercase transition-all cursor-pointer ${
+                  className={`px-2 sm:px-2.5 py-1 rounded-lg sm:rounded-xl text-[10px] sm:text-[11px] font-black uppercase transition-all cursor-pointer ${
                     calendarView === view ? 'bg-[#FFE600] text-black border border-black shadow-[1px_1px_0px_0px_#000]' : 'text-neutral-700 hover:text-black'
                   }`}
                 >
@@ -343,7 +344,7 @@ export function EmployeeSchedulingModule({ currentRole }: EmployeeSchedulingModu
             </div>
 
             {/* Date Navigator */}
-            <div className="flex items-center gap-1 bg-[#FAF8F5] border-2 border-black p-0.5 rounded-2xl shadow-[2px_2px_0px_0px_#000]">
+            <div className="flex items-center gap-1 bg-[#FAF8F5] border-2 border-black p-0.5 rounded-xl sm:rounded-2xl shadow-[2px_2px_0px_0px_#000]">
               <button
                 onClick={() => {
                   const d = new Date(selectedDate)
@@ -354,7 +355,7 @@ export function EmployeeSchedulingModule({ currentRole }: EmployeeSchedulingModu
               >
                 <ChevronLeft className="w-3.5 h-3.5" />
               </button>
-              <span className="text-xs font-mono font-black text-black px-2">{selectedDate}</span>
+              <span className="text-[11px] sm:text-xs font-mono font-black text-black px-1.5">{selectedDate}</span>
               <button
                 onClick={() => {
                   const d = new Date(selectedDate)
@@ -382,7 +383,7 @@ export function EmployeeSchedulingModule({ currentRole }: EmployeeSchedulingModu
             {/* Week Header & Columns */}
             {calendarView === 'weekly' && (
               <div className="overflow-x-auto">
-                <div className="min-w-[700px] sm:min-w-full">
+                <div className="min-w-[1120px]">
                   <div className="grid grid-cols-7 border-b-2 border-black text-center bg-[#FAF8F5]">
                     {weekDays.map((dayStr) => {
                       const d = new Date(dayStr)
@@ -452,19 +453,27 @@ export function EmployeeSchedulingModule({ currentRole }: EmployeeSchedulingModu
                                   : 'bg-amber-50/70 border-amber-200 text-[#172033]'
                               }`}
                             >
-                              <div className="flex items-start justify-between gap-1">
-                                <div className="flex items-center gap-1.5">
-                                  <div
-                                    className="w-2 h-2 rounded-full shrink-0"
-                                    style={{ backgroundColor: emp?.colorCode || '#EA580C' }}
-                                  />
-                                  <p className="font-bold truncate text-[11px] text-[#172033]">{shift.employeeName}</p>
-                                </div>
-                                <span className={`text-[9px] px-1.5 py-0.2 rounded font-mono font-bold ${
-                                  isCompleted ? 'text-emerald-700 bg-emerald-100' : isApproved ? 'text-blue-700 bg-blue-100' : 'text-amber-700 bg-amber-100'
+                              {/* Status badge row */}
+                              <div className="flex items-center justify-between gap-1 mb-1">
+                                <span className={`text-[9px] font-mono font-black uppercase px-1.5 py-0.5 rounded border ${
+                                  isCompleted
+                                    ? 'text-emerald-800 bg-emerald-100 border-emerald-300'
+                                    : isApproved
+                                    ? 'text-blue-800 bg-blue-100 border-blue-300'
+                                    : 'text-amber-800 bg-amber-100 border-amber-300'
                                 }`}>
-                                  {shift.status.toUpperCase()}
+                                  {shift.status}
                                 </span>
+                                <span className="text-[10px] font-mono text-neutral-500 font-bold">{shift.hours}h</span>
+                              </div>
+
+                              {/* Employee Name */}
+                              <div className="flex items-center gap-1.5 min-w-0">
+                                <div
+                                  className="w-2 h-2 rounded-full shrink-0"
+                                  style={{ backgroundColor: emp?.colorCode || '#EA580C' }}
+                                />
+                                <p className="font-black truncate text-xs text-black">{shift.employeeName}</p>
                               </div>
 
                               <p className="text-[10px] text-[#64748B] mt-1 font-mono">
@@ -599,44 +608,46 @@ export function EmployeeSchedulingModule({ currentRole }: EmployeeSchedulingModu
 
             {/* Monthly View Grid */}
             {calendarView === 'monthly' && (
-              <div className="p-5 text-center space-y-4 bg-white">
-                <p className="text-xs text-[#64748B]">Displaying November 2026 Monthly Overview</p>
-                <div className="grid grid-cols-7 gap-2">
-                  {Array.from({ length: 30 }).map((_, i) => {
-                    const dayNum = i + 1
-                    const dateStr = `2026-11-${String(dayNum).padStart(2, '0')}`
-                    const dayShifts = shifts.filter((s) => s.date === dateStr)
-                    const isToday = dateStr === TODAY
+              <div className="overflow-x-auto">
+                <div className="min-w-[700px] p-5 text-center space-y-4 bg-white">
+                  <p className="text-xs text-[#64748B]">Displaying November 2026 Monthly Overview</p>
+                  <div className="grid grid-cols-7 gap-2">
+                    {Array.from({ length: 30 }).map((_, i) => {
+                      const dayNum = i + 1
+                      const dateStr = `2026-11-${String(dayNum).padStart(2, '0')}`
+                      const dayShifts = shifts.filter((s) => s.date === dateStr)
+                      const isToday = dateStr === TODAY
 
-                    return (
-                      <div
-                        key={dateStr}
-                        onClick={() => {
-                          setSelectedDate(dateStr)
-                          setCalendarView('daily')
-                        }}
-                        className={`p-3 rounded-2xl border text-left cursor-pointer transition-all ${
-                          isToday
-                            ? 'bg-orange-50 border-[#EA580C]'
-                            : 'bg-[#F8FAFC] border-[#E2E8F0] hover:border-[#EA580C]'
-                        }`}
-                      >
-                        <div className="flex items-center justify-between">
-                          <span className={`text-xs font-bold font-mono ${isToday ? 'text-[#EA580C]' : 'text-[#172033]'}`}>
-                            {dayNum}
-                          </span>
-                          {dayShifts.length > 0 && (
-                            <span className="text-[10px] font-mono px-1.5 py-0.2 rounded-full bg-[#EA580C] text-white font-bold">
-                              {dayShifts.length}
+                      return (
+                        <div
+                          key={dateStr}
+                          onClick={() => {
+                            setSelectedDate(dateStr)
+                            setCalendarView('daily')
+                          }}
+                          className={`p-3 rounded-2xl border text-left cursor-pointer transition-all ${
+                            isToday
+                              ? 'bg-orange-50 border-[#EA580C]'
+                              : 'bg-[#F8FAFC] border-[#E2E8F0] hover:border-[#EA580C]'
+                          }`}
+                        >
+                          <div className="flex items-center justify-between">
+                            <span className={`text-xs font-bold font-mono ${isToday ? 'text-[#EA580C]' : 'text-[#172033]'}`}>
+                              {dayNum}
                             </span>
-                          )}
+                            {dayShifts.length > 0 && (
+                              <span className="text-[10px] font-mono px-1.5 py-0.2 rounded-full bg-[#EA580C] text-white font-bold">
+                                {dayShifts.length}
+                              </span>
+                            )}
+                          </div>
+                          <div className="mt-1 text-[10px] text-[#64748B] truncate">
+                            {dayShifts.length > 0 ? `${dayShifts.length} shifts` : 'Empty'}
+                          </div>
                         </div>
-                        <div className="mt-1 text-[10px] text-[#64748B] truncate">
-                          {dayShifts.length > 0 ? `${dayShifts.length} shifts` : 'Empty'}
-                        </div>
-                      </div>
-                    )
-                  })}
+                      )
+                    })}
+                  </div>
                 </div>
               </div>
             )}

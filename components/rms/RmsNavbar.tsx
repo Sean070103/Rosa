@@ -60,55 +60,51 @@ export function RmsNavbar({
       <div className="flex items-center justify-between gap-2 sm:gap-4">
         {/* Brand & Location Switcher */}
         <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-[#FF5500] border-2 border-black flex items-center justify-center text-white shadow-[2px_2px_0px_0px_#000]">
+          <div className="flex items-center gap-2 shrink-0">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-[#FF5500] border-2 border-black flex items-center justify-center text-white shadow-[2px_2px_0px_0px_#000]">
               <UtensilsCrossed className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
             </div>
-            <div>
-              <div className="flex items-center gap-1.5 sm:gap-2">
-                <span className="font-serif text-base sm:text-lg font-black tracking-tight text-black">RORA</span>
-                <span className="text-[9px] sm:text-[10px] uppercase tracking-wider px-1.5 sm:px-2 py-0.5 rounded-full font-mono font-black bg-[#FFE600] text-black border border-black shadow-[1px_1px_0px_0px_#000]">
-                  RMS PRO
-                </span>
-              </div>
-              <p className="text-[11px] font-medium text-neutral-600 hidden sm:block">Intelligent Restaurant Management System</p>
+            <div className="flex items-center gap-1.5">
+              <span className="font-serif text-base sm:text-lg font-black tracking-tight text-black">RORA</span>
+              <span className="hidden sm:inline-block text-[9px] sm:text-[10px] uppercase tracking-wider px-1.5 sm:px-2 py-0.5 rounded-full font-mono font-black bg-[#FFE600] text-black border border-black shadow-[1px_1px_0px_0px_#000]">
+                RMS PRO
+              </span>
             </div>
           </div>
 
           <div className="h-6 w-0.5 bg-black/15 hidden md:block" />
 
-          {/* Location Selector (Neo-Brutalist) */}
-          <div className="flex items-center gap-1.5 bg-[#FAF8F5] hover:bg-white px-2 sm:px-3.5 py-1 sm:py-1.5 rounded-xl sm:rounded-2xl border-2 border-black text-xs transition-all shadow-[2px_2px_0px_0px_#000] shrink-0">
-            <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#FF5500] shrink-0" />
+          {/* Location Selector (Neo-Brutalist) - Desktop Only, Mobile has it in Drawer */}
+          <div className="hidden md:flex items-center gap-1.5 bg-[#FAF8F5] hover:bg-white px-3.5 py-1.5 rounded-2xl border-2 border-black text-xs transition-all shadow-[2px_2px_0px_0px_#000] shrink-0">
+            <MapPin className="w-3.5 h-3.5 text-[#FF5500] shrink-0" />
             <select
               value={currentBranch}
               onChange={(e) => onBranchChange(e.target.value)}
-              className="bg-transparent text-[11px] sm:text-xs font-bold text-black focus:outline-none cursor-pointer max-w-[110px] sm:max-w-none truncate"
+              className="bg-transparent text-xs font-bold text-black focus:outline-none cursor-pointer"
             >
-              <option value="lake">Waterfront Lake</option>
-              <option value="niugan">Niugan Hall</option>
+              <option value="lake">Waterfront Lake Bistro (Bay Veranda)</option>
+              <option value="niugan">Downtown Niugan Grand Hall</option>
             </select>
           </div>
         </div>
 
-        {/* Right Controls: Book Table, Role Switcher, Notifications, Demo Reset */}
+        {/* Right Controls: Book Table (tablet+), Role Switcher, Notifications, Demo Reset */}
         <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
-          {/* Book Table Button */}
+          {/* Book Table Button (hidden on narrow mobile to prevent header collision) */}
           <button
             onClick={onOpenCustomerBooking}
-            className="flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-4 py-1.5 rounded-xl sm:rounded-2xl text-[11px] sm:text-xs font-black uppercase tracking-wider bg-[#FFE600] hover:bg-[#FACC15] text-black border-2 border-black shadow-[2px_2px_0px_0px_#000] sm:shadow-[3px_3px_0px_0px_#000] hover:translate-x-[-1px] hover:translate-y-[-1px] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all cursor-pointer"
+            className="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl sm:rounded-2xl text-xs font-black uppercase tracking-wider bg-[#FFE600] hover:bg-[#FACC15] text-black border-2 border-black shadow-[2px_2px_0px_0px_#000] sm:shadow-[3px_3px_0px_0px_#000] hover:translate-x-[-1px] hover:translate-y-[-1px] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all cursor-pointer"
             title="Launch Customer Table Booking Flow"
           >
             <Calendar className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">Book Table</span>
-            <span className="sm:hidden text-[10px]">Book</span>
+            <span>Book Table</span>
           </button>
 
           {/* Role Switcher Dropdown */}
           <div className="relative">
             <button
               onClick={() => setShowRoleMenu(!showRoleMenu)}
-              className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 rounded-xl sm:rounded-2xl bg-white hover:bg-[#FAF8F5] border-2 border-black text-xs font-bold transition-all cursor-pointer shadow-[2px_2px_0px_0px_#000] sm:shadow-[3px_3px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
+              className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl sm:rounded-2xl bg-white hover:bg-[#FAF8F5] border-2 border-black text-xs font-bold transition-all cursor-pointer shadow-[2px_2px_0px_0px_#000] sm:shadow-[3px_3px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
             >
               <Shield className="w-3.5 h-3.5 text-[#FF5500]" />
               <span className="font-black text-black hidden md:inline">{activeRoleConfig.label}</span>

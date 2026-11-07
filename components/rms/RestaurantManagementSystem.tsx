@@ -156,43 +156,38 @@ export function RestaurantManagementSystem() {
           onNavigateTab={handleTabSelect}
         />
 
-        {/* Mobile Sub-Header & Fast Module Switcher */}
-        <div className="lg:hidden bg-white border-b-2 border-black z-20 relative">
-          <div className="flex items-center justify-between px-3 py-2 border-b border-black/10">
-            <button
-              onClick={() => setIsMobileSidebarOpen(!isMobileSidebarOpen)}
-              className="flex items-center gap-1.5 text-xs font-black px-3 py-1.5 rounded-xl bg-[#FFE600] border-2 border-black text-black shadow-[2px_2px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none cursor-pointer"
-            >
-              <Menu className="w-3.5 h-3.5 text-black stroke-[2.5]" />
-              <span>MODULES</span>
-            </button>
+        {/* Mobile Fast Navigation Strip (Single Compact Bar) */}
+        <div className="lg:hidden bg-white border-b-2 border-black z-20 relative px-2.5 py-2 flex items-center gap-2 overflow-x-auto no-scrollbar shadow-[0_2px_0_#000]">
+          {/* Drawer trigger button */}
+          <button
+            onClick={() => setIsMobileSidebarOpen(true)}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-black bg-[#FFE600] border-2 border-black text-black shadow-[2px_2px_0px_0px_#000] shrink-0 active:translate-x-px active:translate-y-px active:shadow-none cursor-pointer"
+          >
+            <Menu className="w-3.5 h-3.5 stroke-[2.5]" />
+            <span>MODULES</span>
+          </button>
 
-            <span className="text-[11px] font-black uppercase tracking-tight text-black bg-[#FAF8F5] px-2.5 py-1 rounded-lg border-2 border-black shadow-[1px_1px_0px_0px_#000]">
-              {navItems.find((i) => i.id === activeTab)?.shortLabel}
-            </span>
-          </div>
+          <div className="h-5 w-0.5 bg-black/20 shrink-0" />
 
-          {/* Quick-switch horizontal scrollable strip for mobile */}
-          <div className="flex items-center gap-1.5 px-2.5 py-2 overflow-x-auto no-scrollbar bg-[#FAF8F5]">
-            {visibleNavItems.map((item) => {
-              const Icon = item.icon
-              const isActive = activeTab === item.id
-              return (
-                <button
-                  key={item.id}
-                  onClick={() => handleTabSelect(item.id)}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-black whitespace-nowrap transition-all border-2 border-black cursor-pointer shrink-0 ${
-                    isActive
-                      ? 'bg-[#FF5500] text-white shadow-[2px_2px_0px_0px_#000]'
-                      : 'bg-white text-black hover:bg-[#FAF8F5] shadow-[1px_1px_0px_0px_#000]'
-                  }`}
-                >
-                  <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : 'text-black'}`} />
-                  <span>{item.shortLabel}</span>
-                </button>
-              )
-            })}
-          </div>
+          {/* Module Quick-Pills */}
+          {visibleNavItems.map((item) => {
+            const Icon = item.icon
+            const isActive = activeTab === item.id
+            return (
+              <button
+                key={item.id}
+                onClick={() => handleTabSelect(item.id)}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-black whitespace-nowrap transition-all border-2 border-black cursor-pointer shrink-0 ${
+                  isActive
+                    ? 'bg-[#FF5500] text-white shadow-[2px_2px_0px_0px_#000]'
+                    : 'bg-[#FAF8F5] text-black hover:bg-neutral-100 shadow-[1px_1px_0px_0px_#000]'
+                }`}
+              >
+                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : 'text-black'}`} />
+                <span>{item.shortLabel}</span>
+              </button>
+            )
+          })}
         </div>
 
         {/* Main Body Layout with Sidebar */}
@@ -265,73 +260,6 @@ export function RestaurantManagementSystem() {
             </div>
           </aside>
 
-          {/* Mobile Sliding Drawer Sidebar (Neo-Brutalist) */}
-          {isMobileSidebarOpen && (
-            <div className="lg:hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex">
-              <div className="w-72 max-w-[85vw] bg-white border-r-3 border-black flex flex-col h-full shadow-[6px_0px_0px_0px_#000]">
-                {/* Drawer Header */}
-                <div className="p-4 border-b-2 border-black flex items-center justify-between bg-[#FAF8F5]">
-                  <span className="font-black text-base text-black tracking-tight flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-[#FF5500] border border-black" />
-                    RORA RMS PRO
-                  </span>
-                  <button
-                    onClick={() => setIsMobileSidebarOpen(false)}
-                    className="p-1.5 text-black hover:bg-black hover:text-white rounded-xl border-2 border-black transition-colors cursor-pointer"
-                  >
-                    <X className="w-4 h-4 stroke-[2.5]" />
-                  </button>
-                </div>
-
-                {/* Mobile Branch Selector */}
-                <div className="p-3 bg-[#FFFBEB] border-b-2 border-black flex items-center gap-2">
-                  <MapPin className="w-3.5 h-3.5 text-[#FF5500] shrink-0" />
-                  <div className="flex-1 min-w-0">
-                    <p className="text-[9px] font-mono font-black uppercase text-neutral-500">Active Branch</p>
-                    <select
-                      value={currentBranch}
-                      onChange={(e) => setCurrentBranch(e.target.value)}
-                      className="bg-transparent text-xs font-black text-black focus:outline-none w-full cursor-pointer truncate"
-                    >
-                      <option value="lake">Waterfront Lake Bistro</option>
-                      <option value="niugan">Downtown Niugan Hall</option>
-                    </select>
-                  </div>
-                </div>
-
-                {/* Scrollable Nav Items */}
-                <div className="flex-1 overflow-y-auto p-3 space-y-2">
-                  {visibleNavItems.map((item) => {
-                    const Icon = item.icon
-                    const isActive = activeTab === item.id
-                    return (
-                      <button
-                        key={item.id}
-                        onClick={() => handleTabSelect(item.id)}
-                        className={`w-full flex items-center gap-3 p-3 rounded-xl text-xs font-black border-2 border-black transition-all cursor-pointer ${
-                          isActive
-                            ? 'bg-[#FF5500] text-white shadow-[3px_3px_0px_0px_#000]'
-                            : 'bg-white text-black hover:bg-[#FAF8F5] shadow-[2px_2px_0px_0px_#000]'
-                        }`}
-                      >
-                        <Icon className={`w-4 h-4 stroke-[2.5] ${isActive ? 'text-white' : 'text-black'}`} />
-                        <span className="truncate">{item.label}</span>
-                      </button>
-                    )
-                  })}
-                </div>
-
-                {/* Drawer Footer */}
-                <div className="p-3 border-t-2 border-black bg-[#FFE600] text-xs font-black text-black uppercase flex items-center justify-between">
-                  <span>Role: <span className="underline">{currentRole}</span></span>
-                  <span className="font-mono text-[10px]">RMS PRO</span>
-                </div>
-              </div>
-
-              <div className="flex-1" onClick={() => setIsMobileSidebarOpen(false)} />
-            </div>
-          )}
-
           {/* Center Main Stage Content Area */}
           <main className="flex-1 overflow-y-auto p-3 sm:p-6 lg:p-8 space-y-4 sm:space-y-6 max-w-full overflow-x-hidden min-w-0">
             {activeTab === 'dashboard' && (
@@ -378,6 +306,73 @@ export function RestaurantManagementSystem() {
             )}
           </main>
         </div>
+
+        {/* Mobile Full-Screen Sliding Drawer Sidebar (Root Level z-50) */}
+        {isMobileSidebarOpen && (
+          <div className="lg:hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex">
+            <div className="w-80 max-w-[85vw] bg-white border-r-3 border-black flex flex-col h-full shadow-[6px_0px_0px_0px_#000] animate-in slide-in-from-left duration-200">
+              {/* Drawer Header */}
+              <div className="p-4 border-b-2 border-black flex items-center justify-between bg-[#FFE600]">
+                <span className="font-black text-base text-black tracking-tight flex items-center gap-2">
+                  <span className="w-3.5 h-3.5 rounded-full bg-[#FF5500] border-2 border-black" />
+                  RORA RMS PRO
+                </span>
+                <button
+                  onClick={() => setIsMobileSidebarOpen(false)}
+                  className="p-1.5 text-black bg-white hover:bg-black hover:text-white rounded-xl border-2 border-black shadow-[2px_2px_0px_0px_#000] active:translate-x-px active:translate-y-px active:shadow-none transition-all cursor-pointer"
+                >
+                  <X className="w-4 h-4 stroke-[2.5]" />
+                </button>
+              </div>
+
+              {/* Mobile Branch Selector */}
+              <div className="p-3 bg-[#FFFBEB] border-b-2 border-black flex items-center gap-2">
+                <MapPin className="w-3.5 h-3.5 text-[#FF5500] shrink-0" />
+                <div className="flex-1 min-w-0">
+                  <p className="text-[9px] font-mono font-black uppercase text-neutral-500">Active Branch</p>
+                  <select
+                    value={currentBranch}
+                    onChange={(e) => setCurrentBranch(e.target.value)}
+                    className="bg-transparent text-xs font-black text-black focus:outline-none w-full cursor-pointer truncate"
+                  >
+                    <option value="lake">Waterfront Lake Bistro</option>
+                    <option value="niugan">Downtown Niugan Hall</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Scrollable Nav Items with generous bottom padding */}
+              <div className="flex-1 overflow-y-auto p-3 space-y-2 pb-20">
+                {visibleNavItems.map((item) => {
+                  const Icon = item.icon
+                  const isActive = activeTab === item.id
+                  return (
+                    <button
+                      key={item.id}
+                      onClick={() => handleTabSelect(item.id)}
+                      className={`w-full flex items-center gap-3 p-3 rounded-xl text-xs font-black border-2 border-black transition-all cursor-pointer ${
+                        isActive
+                          ? 'bg-[#FF5500] text-white shadow-[3px_3px_0px_0px_#000]'
+                          : 'bg-white text-black hover:bg-[#FAF8F5] shadow-[2px_2px_0px_0px_#000]'
+                      }`}
+                    >
+                      <Icon className={`w-4 h-4 stroke-[2.5] ${isActive ? 'text-white' : 'text-black'}`} />
+                      <span className="truncate">{item.label}</span>
+                    </button>
+                  )
+                })}
+              </div>
+
+              {/* Drawer Footer */}
+              <div className="p-3 border-t-2 border-black bg-[#FAF8F5] text-xs font-black text-black uppercase flex items-center justify-between shrink-0">
+                <span>Role: <span className="underline">{currentRole}</span></span>
+                <span className="font-mono text-[10px] text-neutral-500">RMS PRO</span>
+              </div>
+            </div>
+
+            <div className="flex-1" onClick={() => setIsMobileSidebarOpen(false)} />
+          </div>
+        )}
 
         {/* Customer Booking Dialog Modal */}
         <CustomerReservationModal
